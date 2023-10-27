@@ -9,11 +9,11 @@ syntax = "proto3";
 
 package managed_element;
 
-import "proto/ygot/ywrapper.proto";
-import "proto/ygot/yext.proto";
+import "ygot/ywrapper.proto";
+import "ygot/yext.proto";
 import "managed_element/enums/enums.proto";
 
-option go_package = "//managed_element";
+option go_package = "github.com/sriramy/vswitch-api/pkg/gen/go/managed_element";
 
 message ManagedElement {
   message ComponentKey {

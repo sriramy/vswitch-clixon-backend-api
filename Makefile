@@ -11,7 +11,7 @@ FAKEROOT ?= managed_element
 YGOT_PKG_NAME ?= gen
 YGOT_GEN_DIR ?= pkg/$(YGOT_PKG_NAME)
 PROTO_DIR = $(YGOT_GEN_DIR)/proto
-STUBS_DIR = $(YGOT_GEN_DIR)/go
+PROTO2GO_DIR = $(YGOT_GEN_DIR)/go
 
 PREFIX ?= /usr/local
 PROTOC ?= protoc
@@ -20,8 +20,8 @@ GO ?=go
 YANG_EXCLUDE_MODULES ?= ietf-interfaces,openconfig-segment-routing-types
 YANG_FILES = $(wildcard $(YANG_DIR)/*.yang)
 YGOT_PROT_FILES = $(patsubst $(YANG_DIR)/%.yang, $(YGOT_GEN_DIR)/proto/%.proto, $(YANG_FILES))
-YGOT_FLAGS ?= -generate_fakeroot -fakeroot_name=$(FAKEROOT) -package_name=$(FAKEROOT) -go_package_base=/ \
-	-compress_paths=true -exclude_modules=$(YANG_EXCLUDE_MODULES) -yext_path=$(IMPORTS_DIR)/ygot -ywrapper_path=$(IMPORTS_DIR)/ygot
+YGOT_FLAGS ?= -generate_fakeroot -fakeroot_name=$(FAKEROOT) -package_name=$(FAKEROOT) -go_package_base=github.com/sriramy/vswitch-api/$(PROTO2GO_DIR) \
+	-compress_paths=true -exclude_modules=$(YANG_EXCLUDE_MODULES) -yext_path=ygot -ywrapper_path=ygot
 
 all: generate
 
@@ -32,16 +32,15 @@ $(YGOT_GEN_DIR)/proto/%.proto: $(YANG_DIR)/%.yang
 $(DOCS_DIR):
 	mkdir -p $(DOCS_DIR)
 
-$(STUBS_DIR):
-	mkdir -p $(STUBS_DIR)
+$(PROTO2GO_DIR):
+	mkdir -p $(PROTO2GO_DIR)
 
 .PHONY: proto2go
-proto2go: $(STUBS_DIR) $(DOCS_DIR)
-	$(PROTOC) -I . \
-	-I $(PROTO_DIR) \
-	--go_out=$(STUBS_DIR) \
+proto2go: $(PROTO2GO_DIR) $(DOCS_DIR)
+	$(PROTOC) -I $(IMPORTS_DIR) -I $(PROTO_DIR) \
+	--go_out=$(PROTO2GO_DIR) --go_opt=paths=source_relative \
 	--doc_out=$(DOCS_DIR) --doc_opt=markdown,proto.md \
-	$(PROTO_DIR)/$(FAKEROOT)/$(FAKEROOT).proto
+	$(PROTO_DIR)/$(FAKEROOT)/$(FAKEROOT).proto $(PROTO_DIR)/$(FAKEROOT)/enums/enums.proto
 
 .PHONY: generate
 generate: $(YGOT_PROT_FILES) proto2go

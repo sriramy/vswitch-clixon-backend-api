@@ -3,7 +3,7 @@
 
 ## Table of Contents
 
-- [pkg/gen/proto/managed_element/managed_element.proto](#pkg_gen_proto_managed_element_managed_element-proto)
+- [managed_element/managed_element.proto](#managed_element_managed_element-proto)
     - [Acl](#managed_element-Acl)
     - [Acl.AclSet](#managed_element-Acl-AclSet)
     - [Acl.AclSet.AclEntry](#managed_element-Acl-AclSet-AclEntry)
@@ -1410,14 +1410,144 @@
     - [System.Ntp.Server.AssociationType](#managed_element-System-Ntp-Server-AssociationType)
     - [System.SshServer.ProtocolVersion](#managed_element-System-SshServer-ProtocolVersion)
   
+- [managed_element/enums/enums.proto](#managed_element_enums_enums-proto)
+    - [IETFInterfacesInterfaceType](#managed_element-enums-IETFInterfacesInterfaceType)
+    - [OpenconfigAaaTypesAAAACCOUNTINGEVENTTYPE](#managed_element-enums-OpenconfigAaaTypesAAAACCOUNTINGEVENTTYPE)
+    - [OpenconfigAaaTypesAAAAUTHORIZATIONEVENTTYPE](#managed_element-enums-OpenconfigAaaTypesAAAAUTHORIZATIONEVENTTYPE)
+    - [OpenconfigAaaTypesAAAMETHODTYPE](#managed_element-enums-OpenconfigAaaTypesAAAMETHODTYPE)
+    - [OpenconfigAaaTypesAAASERVERTYPE](#managed_element-enums-OpenconfigAaaTypesAAASERVERTYPE)
+    - [OpenconfigAaaTypesSYSTEMDEFINEDROLES](#managed_element-enums-OpenconfigAaaTypesSYSTEMDEFINEDROLES)
+    - [OpenconfigAclACLCOUNTERCAPABILITY](#managed_element-enums-OpenconfigAclACLCOUNTERCAPABILITY)
+    - [OpenconfigAclACLTYPE](#managed_element-enums-OpenconfigAclACLTYPE)
+    - [OpenconfigAclFORWARDINGACTION](#managed_element-enums-OpenconfigAclFORWARDINGACTION)
+    - [OpenconfigAclLOGACTION](#managed_element-enums-OpenconfigAclLOGACTION)
+    - [OpenconfigAftTypesEncapsulationHeaderType](#managed_element-enums-OpenconfigAftTypesEncapsulationHeaderType)
+    - [OpenconfigAlarmTypesOPENCONFIGALARMSEVERITY](#managed_element-enums-OpenconfigAlarmTypesOPENCONFIGALARMSEVERITY)
+    - [OpenconfigAlarmTypesOPENCONFIGALARMTYPEID](#managed_element-enums-OpenconfigAlarmTypesOPENCONFIGALARMTYPEID)
+    - [OpenconfigBfdBfdDiagnosticCode](#managed_element-enums-OpenconfigBfdBfdDiagnosticCode)
+    - [OpenconfigBfdBfdSessionState](#managed_element-enums-OpenconfigBfdBfdSessionState)
+    - [OpenconfigBgpTypesAFISAFITYPE](#managed_element-enums-OpenconfigBgpTypesAFISAFITYPE)
+    - [OpenconfigBgpTypesAsPathSegmentType](#managed_element-enums-OpenconfigBgpTypesAsPathSegmentType)
+    - [OpenconfigBgpTypesBGPCAPABILITY](#managed_element-enums-OpenconfigBgpTypesBGPCAPABILITY)
+    - [OpenconfigBgpTypesBGPERRORCODE](#managed_element-enums-OpenconfigBgpTypesBGPERRORCODE)
+    - [OpenconfigBgpTypesBGPERRORSUBCODE](#managed_element-enums-OpenconfigBgpTypesBGPERRORSUBCODE)
+    - [OpenconfigBgpTypesBGPWELLKNOWNSTDCOMMUNITY](#managed_element-enums-OpenconfigBgpTypesBGPWELLKNOWNSTDCOMMUNITY)
+    - [OpenconfigBgpTypesBgpOriginAttrType](#managed_element-enums-OpenconfigBgpTypesBgpOriginAttrType)
+    - [OpenconfigBgpTypesCommunityType](#managed_element-enums-OpenconfigBgpTypesCommunityType)
+    - [OpenconfigBgpTypesPeerType](#managed_element-enums-OpenconfigBgpTypesPeerType)
+    - [OpenconfigBgpTypesRemovePrivateAsOption](#managed_element-enums-OpenconfigBgpTypesRemovePrivateAsOption)
+    - [OpenconfigEvpnTypesEVPNTYPE](#managed_element-enums-OpenconfigEvpnTypesEVPNTYPE)
+    - [OpenconfigEvpnTypesLearningMode](#managed_element-enums-OpenconfigEvpnTypesLearningMode)
+    - [OpenconfigIcmpv4TypesCODE](#managed_element-enums-OpenconfigIcmpv4TypesCODE)
+    - [OpenconfigIcmpv4TypesTYPE](#managed_element-enums-OpenconfigIcmpv4TypesTYPE)
+    - [OpenconfigIcmpv6TypesCODE](#managed_element-enums-OpenconfigIcmpv6TypesCODE)
+    - [OpenconfigIcmpv6TypesTYPE](#managed_element-enums-OpenconfigIcmpv6TypesTYPE)
+    - [OpenconfigIfAggregateAggregationType](#managed_element-enums-OpenconfigIfAggregateAggregationType)
+    - [OpenconfigIfEthernetETHERNETSPEED](#managed_element-enums-OpenconfigIfEthernetETHERNETSPEED)
+    - [OpenconfigIfEthernetINTERFACEFEC](#managed_element-enums-OpenconfigIfEthernetINTERFACEFEC)
+    - [OpenconfigIsisIsisMetricFlags](#managed_element-enums-OpenconfigIsisIsisMetricFlags)
+    - [OpenconfigIsisLsdbTypesISISSUBTLVTYPE](#managed_element-enums-OpenconfigIsisLsdbTypesISISSUBTLVTYPE)
+    - [OpenconfigIsisLsdbTypesISISTLVTYPE](#managed_element-enums-OpenconfigIsisLsdbTypesISISTLVTYPE)
+    - [OpenconfigIsisTypesAFISAFITYPE](#managed_element-enums-OpenconfigIsisTypesAFISAFITYPE)
+    - [OpenconfigIsisTypesAFITYPE](#managed_element-enums-OpenconfigIsisTypesAFITYPE)
+    - [OpenconfigIsisTypesAUTHMODE](#managed_element-enums-OpenconfigIsisTypesAUTHMODE)
+    - [OpenconfigIsisTypesAdaptiveTimerType](#managed_element-enums-OpenconfigIsisTypesAdaptiveTimerType)
+    - [OpenconfigIsisTypesCircuitType](#managed_element-enums-OpenconfigIsisTypesCircuitType)
+    - [OpenconfigIsisTypesHelloPaddingType](#managed_element-enums-OpenconfigIsisTypesHelloPaddingType)
+    - [OpenconfigIsisTypesIsisInterfaceAdjState](#managed_element-enums-OpenconfigIsisTypesIsisInterfaceAdjState)
+    - [OpenconfigIsisTypesLevelType](#managed_element-enums-OpenconfigIsisTypesLevelType)
+    - [OpenconfigIsisTypesMetricStyle](#managed_element-enums-OpenconfigIsisTypesMetricStyle)
+    - [OpenconfigIsisTypesOVERLOADRESETTRIGGERTYPE](#managed_element-enums-OpenconfigIsisTypesOVERLOADRESETTRIGGERTYPE)
+    - [OpenconfigIsisTypesSAFITYPE](#managed_element-enums-OpenconfigIsisTypesSAFITYPE)
+    - [OpenconfigKeychainTypesAUTHTYPE](#managed_element-enums-OpenconfigKeychainTypesAUTHTYPE)
+    - [OpenconfigKeychainTypesCRYPTOTYPE](#managed_element-enums-OpenconfigKeychainTypesCRYPTOTYPE)
+    - [OpenconfigLocalRoutingLOCALDEFINEDNEXTHOP](#managed_element-enums-OpenconfigLocalRoutingLOCALDEFINEDNEXTHOP)
+    - [OpenconfigMessagesDEBUGSERVICE](#managed_element-enums-OpenconfigMessagesDEBUGSERVICE)
+    - [OpenconfigMplsCspfTieBreaking](#managed_element-enums-OpenconfigMplsCspfTieBreaking)
+    - [OpenconfigMplsLdpLabelAdvertisementMode](#managed_element-enums-OpenconfigMplsLdpLabelAdvertisementMode)
+    - [OpenconfigMplsLdpMplsLdpAdjacencyType](#managed_element-enums-OpenconfigMplsLdpMplsLdpAdjacencyType)
+    - [OpenconfigMplsLdpMplsLdpAfi](#managed_element-enums-OpenconfigMplsLdpMplsLdpAfi)
+    - [OpenconfigMplsMplsHopType](#managed_element-enums-OpenconfigMplsMplsHopType)
+    - [OpenconfigMplsMplsSrlgFloodingType](#managed_element-enums-OpenconfigMplsMplsSrlgFloodingType)
+    - [OpenconfigMplsTeBandwidthType](#managed_element-enums-OpenconfigMplsTeBandwidthType)
+    - [OpenconfigMplsTypesLSPMETRICTYPE](#managed_element-enums-OpenconfigMplsTypesLSPMETRICTYPE)
+    - [OpenconfigMplsTypesLSPOPERSTATUS](#managed_element-enums-OpenconfigMplsTypesLSPOPERSTATUS)
+    - [OpenconfigMplsTypesLSPROLE](#managed_element-enums-OpenconfigMplsTypesLSPROLE)
+    - [OpenconfigMplsTypesMplsLabelEnum](#managed_element-enums-OpenconfigMplsTypesMplsLabelEnum)
+    - [OpenconfigMplsTypesNULLLABELTYPE](#managed_element-enums-OpenconfigMplsTypesNULLLABELTYPE)
+    - [OpenconfigMplsTypesPATHCOMPUTATIONMETHOD](#managed_element-enums-OpenconfigMplsTypesPATHCOMPUTATIONMETHOD)
+    - [OpenconfigMplsTypesPATHMETRICTYPE](#managed_element-enums-OpenconfigMplsTypesPATHMETRICTYPE)
+    - [OpenconfigMplsTypesPATHSETUPPROTOCOL](#managed_element-enums-OpenconfigMplsTypesPATHSETUPPROTOCOL)
+    - [OpenconfigMplsTypesPROTECTIONTYPE](#managed_element-enums-OpenconfigMplsTypesPROTECTIONTYPE)
+    - [OpenconfigMplsTypesPSEUDOWIREENCAPSULATION](#managed_element-enums-OpenconfigMplsTypesPSEUDOWIREENCAPSULATION)
+    - [OpenconfigMplsTypesRSVPAUTHTYPE](#managed_element-enums-OpenconfigMplsTypesRSVPAUTHTYPE)
+    - [OpenconfigMplsTypesTUNNELADMINSTATUS](#managed_element-enums-OpenconfigMplsTypesTUNNELADMINSTATUS)
+    - [OpenconfigMplsTypesTUNNELTYPE](#managed_element-enums-OpenconfigMplsTypesTUNNELTYPE)
+    - [OpenconfigNetworkInstanceTypesENCAPSULATION](#managed_element-enums-OpenconfigNetworkInstanceTypesENCAPSULATION)
+    - [OpenconfigNetworkInstanceTypesENDPOINTTYPE](#managed_element-enums-OpenconfigNetworkInstanceTypesENDPOINTTYPE)
+    - [OpenconfigNetworkInstanceTypesLABELALLOCATIONMODE](#managed_element-enums-OpenconfigNetworkInstanceTypesLABELALLOCATIONMODE)
+    - [OpenconfigNetworkInstanceTypesNETWORKINSTANCETYPE](#managed_element-enums-OpenconfigNetworkInstanceTypesNETWORKINSTANCETYPE)
+    - [OpenconfigOspfTypesGRACELSATLVTYPES](#managed_element-enums-OpenconfigOspfTypesGRACELSATLVTYPES)
+    - [OpenconfigOspfTypesMAXMETRICINCLUDE](#managed_element-enums-OpenconfigOspfTypesMAXMETRICINCLUDE)
+    - [OpenconfigOspfTypesMAXMETRICTRIGGER](#managed_element-enums-OpenconfigOspfTypesMAXMETRICTRIGGER)
+    - [OpenconfigOspfTypesOSPFLSATYPE](#managed_element-enums-OpenconfigOspfTypesOSPFLSATYPE)
+    - [OpenconfigOspfTypesOSPFNEIGHBORSTATE](#managed_element-enums-OpenconfigOspfTypesOSPFNEIGHBORSTATE)
+    - [OpenconfigOspfTypesOSPFNETWORKTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFNETWORKTYPE)
+    - [OpenconfigOspfTypesOSPFOPAQUELSATYPE](#managed_element-enums-OpenconfigOspfTypesOSPFOPAQUELSATYPE)
+    - [OpenconfigOspfTypesOSPFRISRSIDLABELTLVTYPES](#managed_element-enums-OpenconfigOspfTypesOSPFRISRSIDLABELTLVTYPES)
+    - [OpenconfigOspfTypesOSPFTELINKTLVTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFTELINKTLVTYPE)
+    - [OpenconfigOspfTypesOSPFTELSATLVTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFTELSATLVTYPE)
+    - [OpenconfigOspfTypesOSPFV2EXTENDEDLINKSUBTLVTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDLINKSUBTLVTYPE)
+    - [OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE)
+    - [OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSUBTLVTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSUBTLVTYPE)
+    - [OpenconfigOspfTypesOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE)
+    - [OpenconfigOspfTypesOSPFV2ROUTERLINKTYPE](#managed_element-enums-OpenconfigOspfTypesOSPFV2ROUTERLINKTYPE)
+    - [OpenconfigOspfTypesRILSATLVTYPES](#managed_element-enums-OpenconfigOspfTypesRILSATLVTYPES)
+    - [OpenconfigOspfTypesROUTERLSATYPES](#managed_element-enums-OpenconfigOspfTypesROUTERLSATYPES)
+    - [OpenconfigOspfTypesSRALGORITHM](#managed_element-enums-OpenconfigOspfTypesSRALGORITHM)
+    - [OpenconfigOspfTypesSrSidType](#managed_element-enums-OpenconfigOspfTypesSrSidType)
+    - [OpenconfigOspfTypesTENODEATTRIBUTETLVTYPE](#managed_element-enums-OpenconfigOspfTypesTENODEATTRIBUTETLVTYPE)
+    - [OpenconfigPacketMatchTypesETHERTYPE](#managed_element-enums-OpenconfigPacketMatchTypesETHERTYPE)
+    - [OpenconfigPacketMatchTypesIPPROTOCOL](#managed_element-enums-OpenconfigPacketMatchTypesIPPROTOCOL)
+    - [OpenconfigPacketMatchTypesPortNumRangeEnum](#managed_element-enums-OpenconfigPacketMatchTypesPortNumRangeEnum)
+    - [OpenconfigPacketMatchTypesTCPFLAGS](#managed_element-enums-OpenconfigPacketMatchTypesTCPFLAGS)
+    - [OpenconfigPcepLspControlType](#managed_element-enums-OpenconfigPcepLspControlType)
+    - [OpenconfigPcepPceModeType](#managed_element-enums-OpenconfigPcepPceModeType)
+    - [OpenconfigPimTypesPIMMODE](#managed_element-enums-OpenconfigPimTypesPIMMODE)
+    - [OpenconfigPlatformTypesCOMPONENTOPERSTATUS](#managed_element-enums-OpenconfigPlatformTypesCOMPONENTOPERSTATUS)
+    - [OpenconfigPlatformTypesCOMPONENTREBOOTREASON](#managed_element-enums-OpenconfigPlatformTypesCOMPONENTREBOOTREASON)
+    - [OpenconfigPlatformTypesComponentRedundantRole](#managed_element-enums-OpenconfigPlatformTypesComponentRedundantRole)
+    - [OpenconfigPlatformTypesComponentRedundantRoleSwitchoverReasonTrigger](#managed_element-enums-OpenconfigPlatformTypesComponentRedundantRoleSwitchoverReasonTrigger)
+    - [OpenconfigPlatformTypesOPENCONFIGHARDWARECOMPONENT](#managed_element-enums-OpenconfigPlatformTypesOPENCONFIGHARDWARECOMPONENT)
+    - [OpenconfigPlatformTypesOPENCONFIGSOFTWARECOMPONENT](#managed_element-enums-OpenconfigPlatformTypesOPENCONFIGSOFTWARECOMPONENT)
+    - [OpenconfigPolicyTypesINSTALLPROTOCOLTYPE](#managed_element-enums-OpenconfigPolicyTypesINSTALLPROTOCOLTYPE)
+    - [OpenconfigPolicyTypesMatchSetOptionsRestrictedType](#managed_element-enums-OpenconfigPolicyTypesMatchSetOptionsRestrictedType)
+    - [OpenconfigRibBgpTypesINVALIDROUTEREASON](#managed_element-enums-OpenconfigRibBgpTypesINVALIDROUTEREASON)
+    - [OpenconfigRibBgpTypesTUNNELENCAPSULATIONSUBTLVTYPE](#managed_element-enums-OpenconfigRibBgpTypesTUNNELENCAPSULATIONSUBTLVTYPE)
+    - [OpenconfigRibBgpTypesTUNNELENCAPSULATIONTYPE](#managed_element-enums-OpenconfigRibBgpTypesTUNNELENCAPSULATIONTYPE)
+    - [OpenconfigRoutingPolicyDefaultPolicyType](#managed_element-enums-OpenconfigRoutingPolicyDefaultPolicyType)
+    - [OpenconfigRoutingPolicyPolicyResultType](#managed_element-enums-OpenconfigRoutingPolicyPolicyResultType)
+    - [OpenconfigSegmentRoutingTypesEnlpType](#managed_element-enums-OpenconfigSegmentRoutingTypesEnlpType)
+    - [OpenconfigSegmentRoutingTypesSrDataplaneType](#managed_element-enums-OpenconfigSegmentRoutingTypesSrDataplaneType)
+    - [OpenconfigSegmentRoutingTypesSrteInvalidSlReason](#managed_element-enums-OpenconfigSegmentRoutingTypesSrteInvalidSlReason)
+    - [OpenconfigSegmentRoutingTypesSrteProtocolType](#managed_element-enums-OpenconfigSegmentRoutingTypesSrteProtocolType)
+    - [OpenconfigSystemLoggingSYSLOGFACILITY](#managed_element-enums-OpenconfigSystemLoggingSYSLOGFACILITY)
+    - [OpenconfigSystemLoggingSyslogSeverity](#managed_element-enums-OpenconfigSystemLoggingSyslogSeverity)
+    - [OpenconfigSystemNTPAUTHTYPE](#managed_element-enums-OpenconfigSystemNTPAUTHTYPE)
+    - [OpenconfigTransportTypesLoopbackModeType](#managed_element-enums-OpenconfigTransportTypesLoopbackModeType)
+    - [OpenconfigTypesADDRESSFAMILY](#managed_element-enums-OpenconfigTypesADDRESSFAMILY)
+    - [OpenconfigVlanTypesTPIDTYPES](#managed_element-enums-OpenconfigVlanTypesTPIDTYPES)
+    - [OpenconfigVlanTypesVlanModeType](#managed_element-enums-OpenconfigVlanTypesVlanModeType)
+    - [OpenconfigVlanTypesVlanStackAction](#managed_element-enums-OpenconfigVlanTypesVlanStackAction)
+  
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="pkg_gen_proto_managed_element_managed_element-proto"></a>
+<a name="managed_element_managed_element-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## pkg/gen/proto/managed_element/managed_element.proto
+## managed_element/managed_element.proto
 managed_element is generated by proto_generator as a protobuf
 representation of a YANG schema.
 
@@ -25492,6 +25622,2475 @@ Include paths:
 | PROTOCOLVERSION_V2 | 0 |  |
 | PROTOCOLVERSION_V1 | 2 |  |
 | PROTOCOLVERSION_V1_V2 | 3 |  |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="managed_element_enums_enums-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## managed_element/enums/enums.proto
+managed_element.enums is generated by proto_generator as a protobuf
+representation of a YANG schema.
+
+Input schema modules:
+ - yang/openconfig-system.yang
+Include paths:
+  - models/...
+
+ 
+
+
+<a name="managed_element-enums-IETFInterfacesInterfaceType"></a>
+
+### IETFInterfacesInterfaceType
+IETFInterfacesInterfaceType represents an enumerated type generated for the YANG identity interface-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| IETFINTERFACESINTERFACETYPE_UNSET | 0 |  |
+| IETFINTERFACESINTERFACETYPE_vmwareVirtualNic | 1565006 |  |
+| IETFINTERFACESINTERFACETYPE_sdsl | 6510195 |  |
+| IETFINTERFACESINTERFACETYPE_radsl | 6740905 |  |
+| IETFINTERFACESINTERFACETYPE_x86Laps | 6820753 |  |
+| IETFINTERFACESINTERFACETYPE_localTalk | 8569638 |  |
+| IETFINTERFACESINTERFACETYPE_dlsw | 9975993 |  |
+| IETFINTERFACESINTERFACETYPE_idsl | 11625257 |  |
+| IETFINTERFACESINTERFACETYPE_nfas | 15826611 |  |
+| IETFINTERFACESINTERFACETYPE_bridge | 16268636 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableScte55d2UsOob | 26367302 |  |
+| IETFINTERFACESINTERFACETYPE_ieee80216WMAN | 27144395 |  |
+| IETFINTERFACESINTERFACETYPE_tr008 | 29978951 |  |
+| IETFINTERFACESINTERFACETYPE_dvbRccUpstream | 32753636 |  |
+| IETFINTERFACESINTERFACETYPE_propDocsWirelessDownstream | 33042753 |  |
+| IETFINTERFACESINTERFACETYPE_frf16MfrBundle | 33466019 |  |
+| IETFINTERFACESINTERFACETYPE_actelisMetaLOOP | 33876615 |  |
+| IETFINTERFACESINTERFACETYPE_virtualIpAddress | 34837125 |  |
+| IETFINTERFACESINTERFACETYPE_hdsl2 | 35292480 |  |
+| IETFINTERFACESINTERFACETYPE_virtualTg | 36505915 |  |
+| IETFINTERFACESINTERFACETYPE_pdnEtherLoop1 | 39592732 |  |
+| IETFINTERFACESINTERFACETYPE_pdnEtherLoop2 | 39592735 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableUpstream | 40317714 |  |
+| IETFINTERFACESINTERFACETYPE_msdsl | 42288188 |  |
+| IETFINTERFACESINTERFACETYPE_fddi | 45545244 |  |
+| IETFINTERFACESINTERFACETYPE_gfp | 46876684 |  |
+| IETFINTERFACESINTERFACETYPE_propWirelessP2P | 47272810 |  |
+| IETFINTERFACESINTERFACETYPE_fibreChannel | 48464202 |  |
+| IETFINTERFACESINTERFACETYPE_propBWAp2Mp | 53391395 |  |
+| IETFINTERFACESINTERFACETYPE_mpls | 59594435 |  |
+| IETFINTERFACESINTERFACETYPE_fast | 62764217 |  |
+| IETFINTERFACESINTERFACETYPE_voiceEM | 68512445 |  |
+| IETFINTERFACESINTERFACETYPE_rfc1483 | 71949014 |  |
+| IETFINTERFACESINTERFACETYPE_opticalTransport | 72145124 |  |
+| IETFINTERFACESINTERFACETYPE_ipSwitch | 75335244 |  |
+| IETFINTERFACESINTERFACETYPE_frameRelayService | 76605298 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableDownstream | 82085109 |  |
+| IETFINTERFACESINTERFACETYPE_smdsDxi | 82940545 |  |
+| IETFINTERFACESINTERFACETYPE_x213 | 86923325 |  |
+| IETFINTERFACESINTERFACETYPE_dvbRcsTdma | 87219061 |  |
+| IETFINTERFACESINTERFACETYPE_reachDSL | 94937173 |  |
+| IETFINTERFACESINTERFACETYPE_iso88025Fiber | 95814573 |  |
+| IETFINTERFACESINTERFACETYPE_ces | 96608266 |  |
+| IETFINTERFACESINTERFACETYPE_isdns | 98224960 |  |
+| IETFINTERFACESINTERFACETYPE_isdnu | 98224966 |  |
+| IETFINTERFACESINTERFACETYPE_ciscoISLvlan | 98611879 |  |
+| IETFINTERFACESINTERFACETYPE_e1 | 98947197 |  |
+| IETFINTERFACESINTERFACETYPE_other | 102886491 |  |
+| IETFINTERFACESINTERFACETYPE_propMultiplexor | 104872999 |  |
+| IETFINTERFACESINTERFACETYPE_iso88025CRFPInt | 107406283 |  |
+| IETFINTERFACESINTERFACETYPE_opticalChannelGroup | 113721035 |  |
+| IETFINTERFACESINTERFACETYPE_dtm | 113840220 |  |
+| IETFINTERFACESINTERFACETYPE_frameRelayInterconnect | 114395621 |  |
+| IETFINTERFACESINTERFACETYPE_vdsl2 | 114521030 |  |
+| IETFINTERFACESINTERFACETYPE_escon | 115055825 |  |
+| IETFINTERFACESINTERFACETYPE_rfc877x25 | 115857711 |  |
+| IETFINTERFACESINTERFACETYPE_x25mlp | 123303819 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableMaclayer | 123379145 |  |
+| IETFINTERFACESINTERFACETYPE_bgppolicyaccounting | 123979459 |  |
+| IETFINTERFACESINTERFACETYPE_a12MppSwitch | 124516534 |  |
+| IETFINTERFACESINTERFACETYPE_rs232 | 125504151 |  |
+| IETFINTERFACESINTERFACETYPE_ifVfiType | 125597175 |  |
+| IETFINTERFACESINTERFACETYPE_atmVirtual | 126930162 |  |
+| IETFINTERFACESINTERFACETYPE_ds0 | 130617844 |  |
+| IETFINTERFACESINTERFACETYPE_ds1 | 130617845 |  |
+| IETFINTERFACESINTERFACETYPE_ds3 | 130617847 |  |
+| IETFINTERFACESINTERFACETYPE_usb | 133030655 |  |
+| IETFINTERFACESINTERFACETYPE_xboxWireless | 134112364 |  |
+| IETFINTERFACESINTERFACETYPE_l2vlan | 136888738 |  |
+| IETFINTERFACESINTERFACETYPE_aluGponOnu | 142838813 |  |
+| IETFINTERFACESINTERFACETYPE_ibm370parChan | 144282644 |  |
+| IETFINTERFACESINTERFACETYPE_if_gsn | 144667633 |  |
+| IETFINTERFACESINTERFACETYPE_propVirtual | 151318645 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableUpstreamRfPort | 152154307 |  |
+| IETFINTERFACESINTERFACETYPE_gr303IDT | 152588497 |  |
+| IETFINTERFACESINTERFACETYPE_dvbTdm | 154146406 |  |
+| IETFINTERFACESINTERFACETYPE_hyperchannel | 154271532 |  |
+| IETFINTERFACESINTERFACETYPE_x25ple | 154740499 |  |
+| IETFINTERFACESINTERFACETYPE_fastEther | 154868491 |  |
+| IETFINTERFACESINTERFACETYPE_adsl | 159068577 |  |
+| IETFINTERFACESINTERFACETYPE_stackToStack | 159738210 |  |
+| IETFINTERFACESINTERFACETYPE_adsl2plus | 161466077 |  |
+| IETFINTERFACESINTERFACETYPE_ipForward | 164396743 |  |
+| IETFINTERFACESINTERFACETYPE_imt | 164717531 |  |
+| IETFINTERFACESINTERFACETYPE_ip | 166057704 |  |
+| IETFINTERFACESINTERFACETYPE_pip | 166131694 |  |
+| IETFINTERFACESINTERFACETYPE_x25huntGroup | 167843534 |  |
+| IETFINTERFACESINTERFACETYPE_aluEpon | 168357285 |  |
+| IETFINTERFACESINTERFACETYPE_aluEponPhysicalUni | 173089984 |  |
+| IETFINTERFACESINTERFACETYPE_propCnls | 175632828 |  |
+| IETFINTERFACESINTERFACETYPE_capwapDot11Profile | 178725861 |  |
+| IETFINTERFACESINTERFACETYPE_voiceDID | 179978682 |  |
+| IETFINTERFACESINTERFACETYPE_cnr | 180496426 |  |
+| IETFINTERFACESINTERFACETYPE_hdh1822 | 181667598 |  |
+| IETFINTERFACESINTERFACETYPE_atmDxi | 185164750 |  |
+| IETFINTERFACESINTERFACETYPE_arcnetPlus | 185743218 |  |
+| IETFINTERFACESINTERFACETYPE_ipOverCdlc | 187706792 |  |
+| IETFINTERFACESINTERFACETYPE_linegroup | 188639782 |  |
+| IETFINTERFACESINTERFACETYPE_dvbRccMacLayer | 190229931 |  |
+| IETFINTERFACESINTERFACETYPE_frameRelay | 192403649 |  |
+| IETFINTERFACESINTERFACETYPE_isdn | 193369057 |  |
+| IETFINTERFACESINTERFACETYPE_voiceOverCable | 193481284 |  |
+| IETFINTERFACESINTERFACETYPE_arap | 194889541 |  |
+| IETFINTERFACESINTERFACETYPE_eon | 197568375 |  |
+| IETFINTERFACESINTERFACETYPE_sonetOverheadChannel | 198587275 |  |
+| IETFINTERFACESINTERFACETYPE_sixToFour | 198588222 |  |
+| IETFINTERFACESINTERFACETYPE_pos | 199686839 |  |
+| IETFINTERFACESINTERFACETYPE_ethernetCsmacd | 200640927 |  |
+| IETFINTERFACESINTERFACETYPE_ds0Bundle | 201568324 |  |
+| IETFINTERFACESINTERFACETYPE_atmLogical | 209365342 |  |
+| IETFINTERFACESINTERFACETYPE_radioMAC | 210946377 |  |
+| IETFINTERFACESINTERFACETYPE_propDocsWirelessMaclayer | 212348549 |  |
+| IETFINTERFACESINTERFACETYPE_pon622 | 214224204 |  |
+| IETFINTERFACESINTERFACETYPE_nsip | 215039369 |  |
+| IETFINTERFACESINTERFACETYPE_modem | 220777299 |  |
+| IETFINTERFACESINTERFACETYPE_otnOdu | 221697026 |  |
+| IETFINTERFACESINTERFACETYPE_iso88024TokenBus | 226662339 |  |
+| IETFINTERFACESINTERFACETYPE_coffee | 228642743 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableUpstreamChannel | 230766155 |  |
+| IETFINTERFACESINTERFACETYPE_atmFuni | 231177305 |  |
+| IETFINTERFACESINTERFACETYPE_lmp | 232563358 |  |
+| IETFINTERFACESINTERFACETYPE_adsl2 | 233775169 |  |
+| IETFINTERFACESINTERFACETYPE_cableDownstreamRfPort | 235031767 |  |
+| IETFINTERFACESINTERFACETYPE_dvbRccDownstream | 237186979 |  |
+| IETFINTERFACESINTERFACETYPE_mediaMailOverIp | 237300945 |  |
+| IETFINTERFACESINTERFACETYPE_basicISDN | 240798305 |  |
+| IETFINTERFACESINTERFACETYPE_plc | 250019614 |  |
+| IETFINTERFACESINTERFACETYPE_propDocsWirelessUpstream | 259946614 |  |
+| IETFINTERFACESINTERFACETYPE_teLink | 263561362 |  |
+| IETFINTERFACESINTERFACETYPE_pon155 | 265689965 |  |
+| IETFINTERFACESINTERFACETYPE_transpHdlc | 266205262 |  |
+| IETFINTERFACESINTERFACETYPE_sonetVT | 269056588 |  |
+| IETFINTERFACESINTERFACETYPE_digitalWrapperOverheadChannel | 269831139 |  |
+| IETFINTERFACESINTERFACETYPE_voiceFGDEANA | 271377999 |  |
+| IETFINTERFACESINTERFACETYPE_primaryISDN | 274718125 |  |
+| IETFINTERFACESINTERFACETYPE_sdci | 274951974 |  |
+| IETFINTERFACESINTERFACETYPE_regular1822 | 275236866 |  |
+| IETFINTERFACESINTERFACETYPE_aal5 | 276070712 |  |
+| IETFINTERFACESINTERFACETYPE_aal2 | 276070719 |  |
+| IETFINTERFACESINTERFACETYPE_sonetPath | 278556471 |  |
+| IETFINTERFACESINTERFACETYPE_mplsTunnel | 280402025 |  |
+| IETFINTERFACESINTERFACETYPE_atm | 280868081 |  |
+| IETFINTERFACESINTERFACETYPE_sonet | 281707114 |  |
+| IETFINTERFACESINTERFACETYPE_econet | 282809795 |  |
+| IETFINTERFACESINTERFACETYPE_l3ipvlan | 283365084 |  |
+| IETFINTERFACESINTERFACETYPE_iso88026Man | 284539790 |  |
+| IETFINTERFACESINTERFACETYPE_gfast | 284732616 |  |
+| IETFINTERFACESINTERFACETYPE_capwapDot11Bss | 287119162 |  |
+| IETFINTERFACESINTERFACETYPE_async | 288480505 |  |
+| IETFINTERFACESINTERFACETYPE_digitalPowerline | 290391966 |  |
+| IETFINTERFACESINTERFACETYPE_ethernet3Mbit | 293951679 |  |
+| IETFINTERFACESINTERFACETYPE_g703at64k | 295222342 |  |
+| IETFINTERFACESINTERFACETYPE_aluGponPhysicalUni | 299181714 |  |
+| IETFINTERFACESINTERFACETYPE_homepna | 299867081 |  |
+| IETFINTERFACESINTERFACETYPE_sip | 300512605 |  |
+| IETFINTERFACESINTERFACETYPE_eplrs | 301064637 |  |
+| IETFINTERFACESINTERFACETYPE_propAtm | 301594276 |  |
+| IETFINTERFACESINTERFACETYPE_proteon10Mbit | 302514551 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableScte55d1FwdOob | 303230600 |  |
+| IETFINTERFACESINTERFACETYPE_iso88022llc | 303441265 |  |
+| IETFINTERFACESINTERFACETYPE_fastEtherFX | 305592941 |  |
+| IETFINTERFACESINTERFACETYPE_atmRadio | 305823410 |  |
+| IETFINTERFACESINTERFACETYPE_cblVectaStar | 307390607 |  |
+| IETFINTERFACESINTERFACETYPE_para | 310683645 |  |
+| IETFINTERFACESINTERFACETYPE_tunnel | 310831889 |  |
+| IETFINTERFACESINTERFACETYPE_voiceOverIp | 311289458 |  |
+| IETFINTERFACESINTERFACETYPE_opticalChannel | 314028106 |  |
+| IETFINTERFACESINTERFACETYPE_q2931 | 315546603 |  |
+| IETFINTERFACESINTERFACETYPE_mvl | 316291514 |  |
+| IETFINTERFACESINTERFACETYPE_ppp | 317130169 |  |
+| IETFINTERFACESINTERFACETYPE_frForward | 317625102 |  |
+| IETFINTERFACESINTERFACETYPE_ieee1394 | 318235148 |  |
+| IETFINTERFACESINTERFACETYPE_aflane8025 | 319364675 |  |
+| IETFINTERFACESINTERFACETYPE_aflane8023 | 319364677 |  |
+| IETFINTERFACESINTERFACETYPE_arcnet | 319683734 |  |
+| IETFINTERFACESINTERFACETYPE_voiceEncap | 320085758 |  |
+| IETFINTERFACESINTERFACETYPE_atmVciEndPt | 321577928 |  |
+| IETFINTERFACESINTERFACETYPE_iso88023Csmacd | 323108786 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableMCmtsDownstream | 324059589 |  |
+| IETFINTERFACESINTERFACETYPE_fastdsl | 327234998 |  |
+| IETFINTERFACESINTERFACETYPE_frDlciEndPt | 331858766 |  |
+| IETFINTERFACESINTERFACETYPE_aluEponLogicalLink | 335068882 |  |
+| IETFINTERFACESINTERFACETYPE_mocaVersion1 | 336028310 |  |
+| IETFINTERFACESINTERFACETYPE_mfSigLink | 337561425 |  |
+| IETFINTERFACESINTERFACETYPE_g9981 | 346881905 |  |
+| IETFINTERFACESINTERFACETYPE_g9982 | 346881906 |  |
+| IETFINTERFACESINTERFACETYPE_g9983 | 346881907 |  |
+| IETFINTERFACESINTERFACETYPE_gtp | 348860930 |  |
+| IETFINTERFACESINTERFACETYPE_mpc | 349846687 |  |
+| IETFINTERFACESINTERFACETYPE_dvbAsiIn | 352651815 |  |
+| IETFINTERFACESINTERFACETYPE_hiperlan2 | 353249714 |  |
+| IETFINTERFACESINTERFACETYPE_hssi | 353395016 |  |
+| IETFINTERFACESINTERFACETYPE_voiceEMFGD | 356893880 |  |
+| IETFINTERFACESINTERFACETYPE_sdlc | 358840141 |  |
+| IETFINTERFACESINTERFACETYPE_frameRelayMPI | 361654039 |  |
+| IETFINTERFACESINTERFACETYPE_ifPwType | 363685441 |  |
+| IETFINTERFACESINTERFACETYPE_channel | 365660696 |  |
+| IETFINTERFACESINTERFACETYPE_proteon80Mbit | 368321000 |  |
+| IETFINTERFACESINTERFACETYPE_v11 | 368423037 |  |
+| IETFINTERFACESINTERFACETYPE_interleave | 370817552 |  |
+| IETFINTERFACESINTERFACETYPE_voiceOverFrameRelay | 370951175 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableNdr | 371051115 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableNdf | 371051135 |  |
+| IETFINTERFACESINTERFACETYPE_ipOverClaw | 373553475 |  |
+| IETFINTERFACESINTERFACETYPE_iso88025TokenRing | 374087486 |  |
+| IETFINTERFACESINTERFACETYPE_capwapWtpVirtualRadio | 377882412 |  |
+| IETFINTERFACESINTERFACETYPE_ieee80211 | 379872273 |  |
+| IETFINTERFACESINTERFACETYPE_ieee80212 | 379872274 |  |
+| IETFINTERFACESINTERFACETYPE_hostPad | 382837620 |  |
+| IETFINTERFACESINTERFACETYPE_smdsIcip | 383911039 |  |
+| IETFINTERFACESINTERFACETYPE_ptm | 384240760 |  |
+| IETFINTERFACESINTERFACETYPE_srp | 384387804 |  |
+| IETFINTERFACESINTERFACETYPE_gigabitEthernet | 384522045 |  |
+| IETFINTERFACESINTERFACETYPE_dvbAsiOut | 385064858 |  |
+| IETFINTERFACESINTERFACETYPE_macSecControlledIF | 385408320 |  |
+| IETFINTERFACESINTERFACETYPE_gr303RDT | 386381018 |  |
+| IETFINTERFACESINTERFACETYPE_pppMultilinkBundle | 389808788 |  |
+| IETFINTERFACESINTERFACETYPE_starLan | 392045632 |  |
+| IETFINTERFACESINTERFACETYPE_voiceFXO | 398407724 |  |
+| IETFINTERFACESINTERFACETYPE_voiceFXS | 398407728 |  |
+| IETFINTERFACESINTERFACETYPE_dcn | 399059610 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableScte55d2DsOob | 401060431 |  |
+| IETFINTERFACESINTERFACETYPE_v36 | 401978180 |  |
+| IETFINTERFACESINTERFACETYPE_v37 | 401978181 |  |
+| IETFINTERFACESINTERFACETYPE_v35 | 401978183 |  |
+| IETFINTERFACESINTERFACETYPE_voiceFGDOS | 403182892 |  |
+| IETFINTERFACESINTERFACETYPE_ds1FDL | 405008209 |  |
+| IETFINTERFACESINTERFACETYPE_h323Proxy | 405322027 |  |
+| IETFINTERFACESINTERFACETYPE_softwareLoopback | 405615795 |  |
+| IETFINTERFACESINTERFACETYPE_lapf | 407559920 |  |
+| IETFINTERFACESINTERFACETYPE_lapd | 407559922 |  |
+| IETFINTERFACESINTERFACETYPE_lapb | 407559924 |  |
+| IETFINTERFACESINTERFACETYPE_qllc | 408677579 |  |
+| IETFINTERFACESINTERFACETYPE_termPad | 408914436 |  |
+| IETFINTERFACESINTERFACETYPE_bits | 410011967 |  |
+| IETFINTERFACESINTERFACETYPE_ddnX25 | 411155170 |  |
+| IETFINTERFACESINTERFACETYPE_ieee8023adLag | 413161059 |  |
+| IETFINTERFACESINTERFACETYPE_g703at2mb | 413279788 |  |
+| IETFINTERFACESINTERFACETYPE_gpon | 416724613 |  |
+| IETFINTERFACESINTERFACETYPE_iso88025Dtr | 420258513 |  |
+| IETFINTERFACESINTERFACETYPE_atmSubInterface | 420647634 |  |
+| IETFINTERFACESINTERFACETYPE_vdsl | 428082364 |  |
+| IETFINTERFACESINTERFACETYPE_docsOfdmaUpstream | 428242326 |  |
+| IETFINTERFACESINTERFACETYPE_vmwareNicTeam | 430304464 |  |
+| IETFINTERFACESINTERFACETYPE_ieee802154 | 432639291 |  |
+| IETFINTERFACESINTERFACETYPE_l3ipxvlan | 434730178 |  |
+| IETFINTERFACESINTERFACETYPE_atmIma | 437373544 |  |
+| IETFINTERFACESINTERFACETYPE_macSecUncontrolledIF | 438273729 |  |
+| IETFINTERFACESINTERFACETYPE_fcipLink | 441424349 |  |
+| IETFINTERFACESINTERFACETYPE_slip | 443995157 |  |
+| IETFINTERFACESINTERFACETYPE_sipSig | 444909704 |  |
+| IETFINTERFACESINTERFACETYPE_mpegTransport | 444910235 |  |
+| IETFINTERFACESINTERFACETYPE_isup | 445020348 |  |
+| IETFINTERFACESINTERFACETYPE_cctEmul | 448544526 |  |
+| IETFINTERFACESINTERFACETYPE_ultra | 451132219 |  |
+| IETFINTERFACESINTERFACETYPE_iana_interface_type | 455303077 |  |
+| IETFINTERFACESINTERFACETYPE_tdlc | 458492100 |  |
+| IETFINTERFACESINTERFACETYPE_voiceOverAtm | 460680391 |  |
+| IETFINTERFACESINTERFACETYPE_aluEponOnu | 461328495 |  |
+| IETFINTERFACESINTERFACETYPE_rsrb | 467591542 |  |
+| IETFINTERFACESINTERFACETYPE_shdsl | 469979751 |  |
+| IETFINTERFACESINTERFACETYPE_propPointToPointSerial | 469979921 |  |
+| IETFINTERFACESINTERFACETYPE_docsCableScte55d1RetOob | 477583546 |  |
+| IETFINTERFACESINTERFACETYPE_myrinet | 477828023 |  |
+| IETFINTERFACESINTERFACETYPE_h323Gatekeeper | 487014318 |  |
+| IETFINTERFACESINTERFACETYPE_ipOverAtm | 487580074 |  |
+| IETFINTERFACESINTERFACETYPE_otnOtu | 490139090 |  |
+| IETFINTERFACESINTERFACETYPE_aluELP | 491118442 |  |
+| IETFINTERFACESINTERFACETYPE_compositeLink | 499352976 |  |
+| IETFINTERFACESINTERFACETYPE_qam | 501537006 |  |
+| IETFINTERFACESINTERFACETYPE_infiniband | 502195319 |  |
+| IETFINTERFACESINTERFACETYPE_hippi | 504532095 |  |
+| IETFINTERFACESINTERFACETYPE_dvbRcsMacLayer | 505127867 |  |
+| IETFINTERFACESINTERFACETYPE_atmbond | 507519306 |  |
+| IETFINTERFACESINTERFACETYPE_ilan | 513673897 |  |
+| IETFINTERFACESINTERFACETYPE_ss7SigLink | 513812603 |  |
+| IETFINTERFACESINTERFACETYPE_docsOfdmDownstream | 516003680 |  |
+| IETFINTERFACESINTERFACETYPE_aviciOpticalEther | 516076235 |  |
+| IETFINTERFACESINTERFACETYPE_rpr | 518755753 |  |
+| IETFINTERFACESINTERFACETYPE_sipTg | 526983982 |  |
+| IETFINTERFACESINTERFACETYPE_wwanPP | 527365956 |  |
+| IETFINTERFACESINTERFACETYPE_hippiInterface | 529837048 |  |
+| IETFINTERFACESINTERFACETYPE_wwanPP2 | 531578942 |  |
+| IETFINTERFACESINTERFACETYPE_voiceEBS | 532084325 |  |
+| IETFINTERFACESINTERFACETYPE_bsc | 532973469 |  |
+| IETFINTERFACESINTERFACETYPE_miox25 | 535720499 |  |
+| IETFINTERFACESINTERFACETYPE_hdlc | 536418624 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAaaTypesAAAACCOUNTINGEVENTTYPE"></a>
+
+### OpenconfigAaaTypesAAAACCOUNTINGEVENTTYPE
+OpenconfigAaaTypesAAAACCOUNTINGEVENTTYPE represents an enumerated type generated for the YANG identity AAA_ACCOUNTING_EVENT_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAAATYPESAAAACCOUNTINGEVENTTYPE_UNSET | 0 |  |
+| OPENCONFIGAAATYPESAAAACCOUNTINGEVENTTYPE_AAA_ACCOUNTING_EVENT_LOGIN | 32244738 |  |
+| OPENCONFIGAAATYPESAAAACCOUNTINGEVENTTYPE_AAA_ACCOUNTING_EVENT_COMMAND | 42489322 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAaaTypesAAAAUTHORIZATIONEVENTTYPE"></a>
+
+### OpenconfigAaaTypesAAAAUTHORIZATIONEVENTTYPE
+OpenconfigAaaTypesAAAAUTHORIZATIONEVENTTYPE represents an enumerated type generated for the YANG identity AAA_AUTHORIZATION_EVENT_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAAATYPESAAAAUTHORIZATIONEVENTTYPE_UNSET | 0 |  |
+| OPENCONFIGAAATYPESAAAAUTHORIZATIONEVENTTYPE_AAA_AUTHORIZATION_EVENT_COMMAND | 274509164 |  |
+| OPENCONFIGAAATYPESAAAAUTHORIZATIONEVENTTYPE_AAA_AUTHORIZATION_EVENT_CONFIG | 470326711 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAaaTypesAAAMETHODTYPE"></a>
+
+### OpenconfigAaaTypesAAAMETHODTYPE
+OpenconfigAaaTypesAAAMETHODTYPE represents an enumerated type generated for the YANG identity AAA_METHOD_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAAATYPESAAAMETHODTYPE_UNSET | 0 |  |
+| OPENCONFIGAAATYPESAAAMETHODTYPE_TACACS_ALL | 419164516 |  |
+| OPENCONFIGAAATYPESAAAMETHODTYPE_RADIUS_ALL | 492107981 |  |
+| OPENCONFIGAAATYPESAAAMETHODTYPE_LOCAL | 525920480 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAaaTypesAAASERVERTYPE"></a>
+
+### OpenconfigAaaTypesAAASERVERTYPE
+OpenconfigAaaTypesAAASERVERTYPE represents an enumerated type generated for the YANG identity AAA_SERVER_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAAATYPESAAASERVERTYPE_UNSET | 0 |  |
+| OPENCONFIGAAATYPESAAASERVERTYPE_TACACS | 5938954 |  |
+| OPENCONFIGAAATYPESAAASERVERTYPE_RADIUS | 19148247 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAaaTypesSYSTEMDEFINEDROLES"></a>
+
+### OpenconfigAaaTypesSYSTEMDEFINEDROLES
+OpenconfigAaaTypesSYSTEMDEFINEDROLES represents an enumerated type generated for the YANG identity SYSTEM_DEFINED_ROLES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAAATYPESSYSTEMDEFINEDROLES_UNSET | 0 |  |
+| OPENCONFIGAAATYPESSYSTEMDEFINEDROLES_SYSTEM_ROLE_ADMIN | 390815160 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAclACLCOUNTERCAPABILITY"></a>
+
+### OpenconfigAclACLCOUNTERCAPABILITY
+OpenconfigAclACLCOUNTERCAPABILITY represents an enumerated type generated for the YANG identity ACL_COUNTER_CAPABILITY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGACLACLCOUNTERCAPABILITY_UNSET | 0 |  |
+| OPENCONFIGACLACLCOUNTERCAPABILITY_INTERFACE_ONLY | 99175805 |  |
+| OPENCONFIGACLACLCOUNTERCAPABILITY_INTERFACE_AGGREGATE | 132869768 |  |
+| OPENCONFIGACLACLCOUNTERCAPABILITY_AGGREGATE_ONLY | 266482693 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAclACLTYPE"></a>
+
+### OpenconfigAclACLTYPE
+OpenconfigAclACLTYPE represents an enumerated type generated for the YANG identity ACL_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGACLACLTYPE_UNSET | 0 |  |
+| OPENCONFIGACLACLTYPE_ACL_L2 | 132416467 |  |
+| OPENCONFIGACLACLTYPE_ACL_MPLS | 234358929 |  |
+| OPENCONFIGACLACLTYPE_ACL_IPV4 | 411031372 |  |
+| OPENCONFIGACLACLTYPE_ACL_IPV6 | 411031374 |  |
+| OPENCONFIGACLACLTYPE_ACL_MIXED | 469804226 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAclFORWARDINGACTION"></a>
+
+### OpenconfigAclFORWARDINGACTION
+OpenconfigAclFORWARDINGACTION represents an enumerated type generated for the YANG identity FORWARDING_ACTION.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGACLFORWARDINGACTION_UNSET | 0 |  |
+| OPENCONFIGACLFORWARDINGACTION_REJECT | 83418768 |  |
+| OPENCONFIGACLFORWARDINGACTION_DROP | 303263142 |  |
+| OPENCONFIGACLFORWARDINGACTION_ACCEPT | 464955669 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAclLOGACTION"></a>
+
+### OpenconfigAclLOGACTION
+OpenconfigAclLOGACTION represents an enumerated type generated for the YANG identity LOG_ACTION.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGACLLOGACTION_UNSET | 0 |  |
+| OPENCONFIGACLLOGACTION_LOG_NONE | 184906209 |  |
+| OPENCONFIGACLLOGACTION_LOG_SYSLOG | 513275964 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAftTypesEncapsulationHeaderType"></a>
+
+### OpenconfigAftTypesEncapsulationHeaderType
+OpenconfigAftTypesEncapsulationHeaderType represents an enumerated type generated for the YANG enumerated type encapsulation-header-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_UNSET | 0 |  |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_GRE | 1 |  |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_IPV4 | 2 |  |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_IPV6 | 3 |  |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_MPLS | 4 |  |
+| OPENCONFIGAFTTYPESENCAPSULATIONHEADERTYPE_VXLAN | 5 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAlarmTypesOPENCONFIGALARMSEVERITY"></a>
+
+### OpenconfigAlarmTypesOPENCONFIGALARMSEVERITY
+OpenconfigAlarmTypesOPENCONFIGALARMSEVERITY represents an enumerated type generated for the YANG identity OPENCONFIG_ALARM_SEVERITY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_UNSET | 0 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_UNKNOWN | 70492973 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_CRITICAL | 123728538 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_MAJOR | 157280644 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_MINOR | 275040832 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMSEVERITY_WARNING | 380442931 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigAlarmTypesOPENCONFIGALARMTYPEID"></a>
+
+### OpenconfigAlarmTypesOPENCONFIGALARMTYPEID
+OpenconfigAlarmTypesOPENCONFIGALARMTYPEID represents an enumerated type generated for the YANG identity OPENCONFIG_ALARM_TYPE_ID.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMTYPEID_UNSET | 0 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMTYPEID_EQPT | 54945826 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMTYPEID_AIS | 356419557 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMTYPEID_LOS | 389213562 |  |
+| OPENCONFIGALARMTYPESOPENCONFIGALARMTYPEID_OTS | 507085248 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBfdBfdDiagnosticCode"></a>
+
+### OpenconfigBfdBfdDiagnosticCode
+OpenconfigBfdBfdDiagnosticCode represents an enumerated type generated for the YANG enumerated type bfd-diagnostic-code.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_UNSET | 0 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_NO_DIAGNOSTIC | 1 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_DETECTION_TIMEOUT | 2 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_ECHO_FAILED | 3 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_FORWARDING_RESET | 4 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_PATH_DOWN | 5 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_CONCATENATED_PATH_DOWN | 6 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_ADMIN_DOWN | 7 |  |
+| OPENCONFIGBFDBFDDIAGNOSTICCODE_REVERSE_CONCATENATED_PATH_DOWN | 8 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBfdBfdSessionState"></a>
+
+### OpenconfigBfdBfdSessionState
+OpenconfigBfdBfdSessionState represents an enumerated type generated for the YANG enumerated type bfd-session-state.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBFDBFDSESSIONSTATE_UNSET | 0 |  |
+| OPENCONFIGBFDBFDSESSIONSTATE_UP | 1 |  |
+| OPENCONFIGBFDBFDSESSIONSTATE_DOWN | 2 |  |
+| OPENCONFIGBFDBFDSESSIONSTATE_ADMIN_DOWN | 3 |  |
+| OPENCONFIGBFDBFDSESSIONSTATE_INIT | 4 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesAFISAFITYPE"></a>
+
+### OpenconfigBgpTypesAFISAFITYPE
+OpenconfigBgpTypesAFISAFITYPE represents an enumerated type generated for the YANG identity AFI_SAFI_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESAFISAFITYPE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L3VPN_IPV4_MULTICAST | 53601692 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_SRTE_POLICY_IPV4 | 56561937 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_SRTE_POLICY_IPV6 | 56561939 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_LINKSTATE_VPN | 86469376 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L3VPN_IPV6_MULTICAST | 171618750 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_IPV4_UNICAST | 196909421 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L2VPN_EVPN | 213517208 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_IPV6_UNICAST | 270342995 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_IPV4_LABELED_UNICAST | 279108253 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_LINKSTATE_SPF | 320902005 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_VPNV4_FLOWSPEC | 339014910 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L3VPN_IPV4_UNICAST | 358537365 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_IPV6_LABELED_UNICAST | 420698035 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L3VPN_IPV6_UNICAST | 421890363 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_IPV4_FLOWSPEC | 431646707 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_LINKSTATE | 512270733 |  |
+| OPENCONFIGBGPTYPESAFISAFITYPE_L2VPN_VPLS | 533405094 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesAsPathSegmentType"></a>
+
+### OpenconfigBgpTypesAsPathSegmentType
+OpenconfigBgpTypesAsPathSegmentType represents an enumerated type generated for the YANG enumerated type as-path-segment-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESASPATHSEGMENTTYPE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESASPATHSEGMENTTYPE_AS_SEQ | 1 |  |
+| OPENCONFIGBGPTYPESASPATHSEGMENTTYPE_AS_SET | 2 |  |
+| OPENCONFIGBGPTYPESASPATHSEGMENTTYPE_AS_CONFED_SEQUENCE | 3 |  |
+| OPENCONFIGBGPTYPESASPATHSEGMENTTYPE_AS_CONFED_SET | 4 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesBGPCAPABILITY"></a>
+
+### OpenconfigBgpTypesBGPCAPABILITY
+OpenconfigBgpTypesBGPCAPABILITY represents an enumerated type generated for the YANG identity BGP_CAPABILITY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_ASN32 | 32923126 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_MPBGP | 70073701 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_ADD_PATHS | 233946091 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_EXTENDED_NEXTHOP_ENCODING | 282666297 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_ROUTE_REFRESH | 392898832 |  |
+| OPENCONFIGBGPTYPESBGPCAPABILITY_GRACEFUL_RESTART | 473546604 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesBGPERRORCODE"></a>
+
+### OpenconfigBgpTypesBGPERRORCODE
+OpenconfigBgpTypesBGPERRORCODE represents an enumerated type generated for the YANG identity BGP_ERROR_CODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESBGPERRORCODE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_CEASE | 84275578 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_HOLD_TIMER_EXPIRED | 87745534 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_UPDATE_MESSAGE_ERROR | 259392533 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_FINITE_STATE_MACHINE_ERROR | 375791507 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_MESSAGE_HEADER_ERROR | 421916061 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_ROUTE_REFRESH_MESSAGE_ERROR | 460120607 |  |
+| OPENCONFIGBGPTYPESBGPERRORCODE_OPEN_MESSAGE_ERROR | 461038742 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesBGPERRORSUBCODE"></a>
+
+### OpenconfigBgpTypesBGPERRORSUBCODE
+OpenconfigBgpTypesBGPERRORSUBCODE represents an enumerated type generated for the YANG identity BGP_ERROR_SUBCODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_MESSAGE_HEADER_SUBCODE | 7391784 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_ATTRIBUTE_LENGTH_ERROR | 21009871 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNSUPPORTED_CAPABILITY | 26975061 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_INVALID_NETWORK_FIELD | 90070374 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_BAD_MESSAGE_LENGTH | 90655699 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_ADMINISTRATIVE_RESET | 100947029 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_OPTIONAL_ATTRIBUTE_ERROR | 123969321 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_MISSING_WELL_KNOWN_ATTRIBUTE | 127563993 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_FINITE_STATE_MACHINE_SUBCODE | 144030790 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_MAX_NUM_PREFIXES_REACHED | 146707226 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_PEER_DE_CONFIGURED | 155193610 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNSUPPORTED_OPTIONAL_PARAMETER | 164097199 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_RECEIVE_UNEXPECTED_MESSAGE_OPENSENT | 164447325 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_INVALID_ORIGIN_ATTRIBUTE | 171350120 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_BAD_MESSAGE_TYPE | 190684995 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNACCEPTABLE_HOLD_TIME | 195987058 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_CONN_COLLISION_RESOLUTION | 199470949 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_ADMINISTRATIVE_SHUTDOWN | 212255550 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_BAD_PEER_AS | 242980858 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_ROUTE_REFRESH_SUBCODE | 252485546 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_CEASE_SUBCODE | 280284332 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_RECEIVE_UNEXPECTED_MESSAGE_ESTABLISHED | 297152611 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_OPEN_MESSAGE_SUBCODE | 310116903 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_ATTRIBUTE_FLAGS_ERROR | 318925574 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_CONNECTION_NOT_SYNCHRONIZED | 320164138 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_OTHER_CONFIG_CHANGE | 332981615 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_MALFORMED_ATTRIBUTE_LIST | 363574162 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_MALFORMED_AS_PATH | 365416389 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNRECOGNIZED_WELL_KNOWN_ATTRIBUTE | 371075444 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNSUPPORTED_VERSION_NUMBER | 371752299 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UNSPECIFIC | 398076278 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_UPDATE_MESSAGE_SUBCODE | 409904620 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_BAD_BGP_IDENTIFIER | 412786356 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_INVALID_MESSAGE_LENGTH | 492961163 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_INVALID_NEXT_HOP_ATTRIBUTE | 498575901 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_RECEIVE_UNEXPECTED_MESSAGE_OPENCONFIRM | 519452397 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_OUT_OF_RESOURCES | 530387889 |  |
+| OPENCONFIGBGPTYPESBGPERRORSUBCODE_CONNECTION_REJECTED | 532202480 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesBGPWELLKNOWNSTDCOMMUNITY"></a>
+
+### OpenconfigBgpTypesBGPWELLKNOWNSTDCOMMUNITY
+OpenconfigBgpTypesBGPWELLKNOWNSTDCOMMUNITY represents an enumerated type generated for the YANG identity BGP_WELL_KNOWN_STD_COMMUNITY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_NO_EXPORT | 7425995 |  |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_NO_EXPORT_SUBCONFED | 75227749 |  |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_NOPEER | 77476850 |  |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_NO_ADVERTISE | 126797620 |  |
+| OPENCONFIGBGPTYPESBGPWELLKNOWNSTDCOMMUNITY_GRACEFUL_SHUTDOWN | 468330335 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesBgpOriginAttrType"></a>
+
+### OpenconfigBgpTypesBgpOriginAttrType
+OpenconfigBgpTypesBgpOriginAttrType represents an enumerated type generated for the YANG enumerated type bgp-origin-attr-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESBGPORIGINATTRTYPE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESBGPORIGINATTRTYPE_IGP | 1 |  |
+| OPENCONFIGBGPTYPESBGPORIGINATTRTYPE_EGP | 2 |  |
+| OPENCONFIGBGPTYPESBGPORIGINATTRTYPE_INCOMPLETE | 3 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesCommunityType"></a>
+
+### OpenconfigBgpTypesCommunityType
+OpenconfigBgpTypesCommunityType represents an enumerated type generated for the YANG enumerated type community-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_STANDARD | 1 |  |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_EXTENDED | 2 |  |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_LARGE | 3 |  |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_BOTH | 4 |  |
+| OPENCONFIGBGPTYPESCOMMUNITYTYPE_NONE | 5 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesPeerType"></a>
+
+### OpenconfigBgpTypesPeerType
+OpenconfigBgpTypesPeerType represents an enumerated type generated for the YANG enumerated type peer-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESPEERTYPE_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESPEERTYPE_INTERNAL | 1 |  |
+| OPENCONFIGBGPTYPESPEERTYPE_EXTERNAL | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigBgpTypesRemovePrivateAsOption"></a>
+
+### OpenconfigBgpTypesRemovePrivateAsOption
+OpenconfigBgpTypesRemovePrivateAsOption represents an enumerated type generated for the YANG identity REMOVE_PRIVATE_AS_OPTION.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGBGPTYPESREMOVEPRIVATEASOPTION_UNSET | 0 |  |
+| OPENCONFIGBGPTYPESREMOVEPRIVATEASOPTION_PRIVATE_AS_REPLACE_ALL | 489360741 |  |
+| OPENCONFIGBGPTYPESREMOVEPRIVATEASOPTION_PRIVATE_AS_REMOVE_ALL | 518520599 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigEvpnTypesEVPNTYPE"></a>
+
+### OpenconfigEvpnTypesEVPNTYPE
+OpenconfigEvpnTypesEVPNTYPE represents an enumerated type generated for the YANG identity EVPN_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGEVPNTYPESEVPNTYPE_UNSET | 0 |  |
+| OPENCONFIGEVPNTYPESEVPNTYPE_VLAN_AWARE | 368961985 |  |
+| OPENCONFIGEVPNTYPESEVPNTYPE_VLAN_BUNDLE | 392005801 |  |
+| OPENCONFIGEVPNTYPESEVPNTYPE_VLAN_BASED | 481251570 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigEvpnTypesLearningMode"></a>
+
+### OpenconfigEvpnTypesLearningMode
+OpenconfigEvpnTypesLearningMode represents an enumerated type generated for the YANG enumerated type learning-mode.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGEVPNTYPESLEARNINGMODE_UNSET | 0 |  |
+| OPENCONFIGEVPNTYPESLEARNINGMODE_CONTROL_PLANE | 1 |  |
+| OPENCONFIGEVPNTYPESLEARNINGMODE_DATA_PLANE | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIcmpv4TypesCODE"></a>
+
+### OpenconfigIcmpv4TypesCODE
+OpenconfigIcmpv4TypesCODE represents an enumerated type generated for the YANG identity CODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGICMPV4TYPESCODE_UNSET | 0 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_MALFORMED_QUERY | 39671959 |  |
+| OPENCONFIGICMPV4TYPESCODE_PARAM_PROBLEM_MISSING_REQ_OPTION | 51231039 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_DST_NET_UNKNOWN | 61813795 |  |
+| OPENCONFIGICMPV4TYPESCODE_REDIRECT_TOS_NETWORK | 64667406 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_BAD_SPI | 81473477 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_PRECEDENCE_CUTOFF | 84081853 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_SRC_HOST_ISOLATED | 87266774 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_CODE | 93986016 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIMESTAMP_REPLY_CODE | 100220985 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_DECOMPRESS_FAILED | 108911196 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REQUEST_CODE | 119830645 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_MULTIPLE_INTF_SATISFY_QUERY | 124398154 |  |
+| OPENCONFIGICMPV4TYPESCODE_REDIRECT_NETWORK | 158337141 |  |
+| OPENCONFIGICMPV4TYPESCODE_PARAM_PROBLEM_CODE | 181199551 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_CANNOT_FRAGMENT | 193577537 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_HOST_PRECEDENCE_VIOLATION | 196557496 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_DST_NET_ADMIN_PROHIBITED | 198772673 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_DECRYPTION_FAILED | 206138362 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_HOST | 216006305 |  |
+| OPENCONFIGICMPV4TYPESCODE_ROUTER_ADVERTISEMENT_NORMAL | 219064563 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIME_EXCEEDED_IN_TRANSIT | 222279187 |  |
+| OPENCONFIGICMPV4TYPESCODE_ROUTER_SELECTION_NO_CODE | 222930300 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_PROTOCOL | 226831451 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_NEED_AUTHORIZATION | 238589151 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_CODE | 243825456 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIMESTAMP_NO_CODE | 259560916 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_AUTH_FAILED | 262405097 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIME_EXCEEDED_CODE | 266227201 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_NO_ERROR | 270573561 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_NO_SUB_TABLE_ENTRY | 272571853 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_SRC_ROUTE_FAILED | 275433263 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_CODE | 280043954 |  |
+| OPENCONFIGICMPV4TYPESCODE_ECHO_CODE | 282687047 |  |
+| OPENCONFIGICMPV4TYPESCODE_PARAM_PROBLEM_BAD_LENGTH | 293329744 |  |
+| OPENCONFIGICMPV4TYPESCODE_REDIRECT_HOST | 310566203 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIMESTAMP_REPLY_NO_CODE | 329093713 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REPLY_NO_SUCH_INTF | 330826724 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_DST_HOST_UNKNOWN | 344101230 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_PORT | 344112174 |  |
+| OPENCONFIGICMPV4TYPESCODE_ECHO_NO_CODE | 360691591 |  |
+| OPENCONFIGICMPV4TYPESCODE_ROUTER_ADVERTISEMENT_DOES_NOT_ROUTE_COMMON | 380703191 |  |
+| OPENCONFIGICMPV4TYPESCODE_ECHO_REPLY_NONE | 384038461 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_HOST_UNREACHABLE_FOR_TOS | 389084985 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_NET | 397621796 |  |
+| OPENCONFIGICMPV4TYPESCODE_PHOTURIS_NEED_AUTHENTICATION | 400804736 |  |
+| OPENCONFIGICMPV4TYPESCODE_EXT_ECHO_REQUEST_NO_ERROR | 403064484 |  |
+| OPENCONFIGICMPV4TYPESCODE_REDIRECT_TOS_HOST | 417258498 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIMESTAMP_CODE | 417826278 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_ADMIN_PROHIBITED | 422672413 |  |
+| OPENCONFIGICMPV4TYPESCODE_PARAM_PROBLEM_POINTER_INDICATES_ERR | 445455158 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_NET_UNREACHABLE_FOR_TOS | 447749056 |  |
+| OPENCONFIGICMPV4TYPESCODE_ROUTER_ADVERTISEMENT_CODE | 451758509 |  |
+| OPENCONFIGICMPV4TYPESCODE_ECHO_REPLY_CODE | 458250824 |  |
+| OPENCONFIGICMPV4TYPESCODE_ROUTER_SELECTION_CODE | 477420462 |  |
+| OPENCONFIGICMPV4TYPESCODE_DST_UNREACHABLE_DST_HOST_ADMIN_PROHIBITED | 477991494 |  |
+| OPENCONFIGICMPV4TYPESCODE_TIME_EXCEEDED_FRAGMENT_REASSEMBLY_IN_TRANSIT | 499627000 |  |
+| OPENCONFIGICMPV4TYPESCODE_REDIRECT_CODE | 530503282 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIcmpv4TypesTYPE"></a>
+
+### OpenconfigIcmpv4TypesTYPE
+OpenconfigIcmpv4TypesTYPE represents an enumerated type generated for the YANG identity TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGICMPV4TYPESTYPE_UNSET | 0 |  |
+| OPENCONFIGICMPV4TYPESTYPE_TIME_EXCEEDED | 1081674 |  |
+| OPENCONFIGICMPV4TYPESTYPE_EXT_ECHO_REQUEST | 24717980 |  |
+| OPENCONFIGICMPV4TYPESTYPE_TIMESTAMP_REPLY | 54420022 |  |
+| OPENCONFIGICMPV4TYPESTYPE_ROUTER_SOLICITATION | 98924893 |  |
+| OPENCONFIGICMPV4TYPESTYPE_REDIRECT | 163834461 |  |
+| OPENCONFIGICMPV4TYPESTYPE_DST_UNREACHABLE | 188732201 |  |
+| OPENCONFIGICMPV4TYPESTYPE_ROUTER_ADVERTISEMENT | 281134796 |  |
+| OPENCONFIGICMPV4TYPESTYPE_TIMESTAMP | 381130807 |  |
+| OPENCONFIGICMPV4TYPESTYPE_ECHO | 387607098 |  |
+| OPENCONFIGICMPV4TYPESTYPE_EXT_ECHO_REPLY | 434363663 |  |
+| OPENCONFIGICMPV4TYPESTYPE_ECHO_REPLY | 439504551 |  |
+| OPENCONFIGICMPV4TYPESTYPE_PHOTURIS | 482289261 |  |
+| OPENCONFIGICMPV4TYPESTYPE_TRACEROUTE | 486129667 |  |
+| OPENCONFIGICMPV4TYPESTYPE_PARAM_PROBLEM | 535263760 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIcmpv6TypesCODE"></a>
+
+### OpenconfigIcmpv6TypesCODE
+OpenconfigIcmpv6TypesCODE represents an enumerated type generated for the YANG identity CODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGICMPV6TYPESCODE_UNSET | 0 |  |
+| OPENCONFIGICMPV6TYPESCODE_HOME_AGENT_ADDRESS_DISCOVERY_REQUEST_NO_CODE | 2792387 |  |
+| OPENCONFIGICMPV6TYPESCODE_TIME_EXCEEDED_HOP_LIMIT | 4874175 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_EDAR_ROVR256 | 18495870 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_BEYOND_SCOPE_OF_SRC | 22662986 |  |
+| OPENCONFIGICMPV6TYPESCODE_MOBILE_PREFIX_ADVERTISEMENT_NO_CODE | 36179335 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_QUERY_IPV6_ADDR | 36537486 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_UNRECOGNIZED_IPV6_OPT | 39436757 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_MALFORMED_QUERY | 39671959 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_EDAC_ROVR128 | 41815814 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_QUERY_NAME | 49780762 |  |
+| OPENCONFIGICMPV6TYPESCODE_HOME_AGENT_ADDRESS_DISCOVERY_REQUEST_CODE | 72643059 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_TOO_MANY_OPTS | 84013001 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_EDAC_ROVR64 | 86490505 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_QUERY_IPV4_ADDR | 90823724 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_CODE | 93986016 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_QUERY_NO_CODE | 104300916 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REQUEST_CODE | 119830645 |  |
+| OPENCONFIGICMPV6TYPESCODE_MOBILE_PREFIX_SOLICITATION_NO_CODE | 121611916 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_MULTIPLE_INTF_SATISFY_QUERY | 124398154 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_DAC | 164413652 |  |
+| OPENCONFIGICMPV6TYPESCODE_PACKET_TOO_BIG_NO_CODE | 174910168 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_CODE | 181199551 |  |
+| OPENCONFIGICMPV6TYPESCODE_INVERSE_NEIGHBOR_SOLICITATION_CODE | 184720938 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_UNRECOGNIZED_NET_HDR_TYPE | 185318453 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_RESPONSE_SUCCESS | 192723461 |  |
+| OPENCONFIGICMPV6TYPESCODE_NEIGHBOR_SOLICITATION_NO_CODE | 196539441 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_UNRECOGNIZED_NEXT_HDR_TYPE | 201444895 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_QUERY_CODE | 211778374 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_DONE_CODE | 216533746 |  |
+| OPENCONFIGICMPV6TYPESCODE_MOBILE_PREFIX_SOLICITATION_CODE | 229746814 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_INCOMPLETE_HDR_CHAIN | 232326081 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_EDAR_ROVR64 | 234342485 |  |
+| OPENCONFIGICMPV6TYPESCODE_RENUNBERING_SEQ_NUM_RESET | 239601824 |  |
+| OPENCONFIGICMPV6TYPESCODE_NEIGHBOR_SOLICITATION_CODE | 240583385 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_CODE | 243825456 |  |
+| OPENCONFIGICMPV6TYPESCODE_NDDE_INFORMATION_RESPONSE_CODE | 246504124 |  |
+| OPENCONFIGICMPV6TYPESCODE_NEIGHBOR_ADVERTISEMENT_NO_CODE | 252580936 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_REPORT_CODE | 257332212 |  |
+| OPENCONFIGICMPV6TYPESCODE_RENUMBERING_CODE | 262608942 |  |
+| OPENCONFIGICMPV6TYPESCODE_TIME_EXCEEDED_CODE | 266227201 |  |
+| OPENCONFIGICMPV6TYPESCODE_RENUMBERING_COMMAND | 268724448 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_NO_ERROR | 270573561 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_ADDR | 270687634 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_RESPONSE_REFUSED | 276662596 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_SRC_ADDR_FAILED_POLICY | 286258614 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_REPORT_NO_CODE | 291343186 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_CODE | 291648023 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_EXT_HDR_CHAIN_TOO_LONG | 296832348 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_DAR | 314124226 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_OPT_TOO_BIG | 317918891 |  |
+| OPENCONFIGICMPV6TYPESCODE_MOBILE_PREFIX_ADVERTISEMENT_CODE | 331790407 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_PORT | 344112174 |  |
+| OPENCONFIGICMPV6TYPESCODE_HOME_AGENT_ADDRESS_DISCOVERY_REPLY_CODE | 346678602 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_TOO_MANY_EXT_HDRS | 347466590 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_NO_SUCH_TABLE_ENTRY | 355305664 |  |
+| OPENCONFIGICMPV6TYPESCODE_ROUTER_ADVERTISEMENT_NO_CODE | 360278613 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_EDAC_ROVR256 | 361070650 |  |
+| OPENCONFIGICMPV6TYPESCODE_ROUTER_SOLICITATION_CODE | 364101756 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_ERR_HDR_FIELD | 364325515 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_EDAR_ROVR128 | 370320010 |  |
+| OPENCONFIGICMPV6TYPESCODE_INVERSE_NEIGHBOR_ADVERTISEMENT_NO_CODE | 373495651 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_EXT_HDR_TOO_BIG | 376629318 |  |
+| OPENCONFIGICMPV6TYPESCODE_NEIGHBOR_ADVERTISEMENT_CODE | 381117226 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REPLY_NO_SUCH_INTERFACE | 385978148 |  |
+| OPENCONFIGICMPV6TYPESCODE_HOME_AGENT_ADDRESS_DISCOVERY_REPLY_NO_CODE | 398725672 |  |
+| OPENCONFIGICMPV6TYPESCODE_EXT_ECHO_REQUEST_NO_ERROR | 403064484 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REPLY_EDAC_ROVR192 | 427688225 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_RESPONSE_UNKNOWN | 429105906 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_DST_ADMIN_PROHIBITED | 432881377 |  |
+| OPENCONFIGICMPV6TYPESCODE_ECHO_REQUEST_NO_CODE | 437451429 |  |
+| OPENCONFIGICMPV6TYPESCODE_RENUNBERING_RESULT | 439696939 |  |
+| OPENCONFIGICMPV6TYPESCODE_MULTICAST_LISTENER_DONE_NO_CODE | 441912272 |  |
+| OPENCONFIGICMPV6TYPESCODE_ECHO_REQUEST_CODE | 446591485 |  |
+| OPENCONFIGICMPV6TYPESCODE_ROUTER_ADVERTISEMENT_CODE | 451758509 |  |
+| OPENCONFIGICMPV6TYPESCODE_REDIRECT_NO_CODE | 456075856 |  |
+| OPENCONFIGICMPV6TYPESCODE_ECHO_REPLY_CODE | 458250824 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_REJECT_ROUTE_TO_DST | 470871876 |  |
+| OPENCONFIGICMPV6TYPESCODE_INVERSE_NEIGHBOR_ADVERTISEMENT_CODE | 477192147 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_EDAR_ROVR192 | 487763333 |  |
+| OPENCONFIGICMPV6TYPESCODE_INVERSE_NEIGHBOR_SOLICITATION_NO_CODE | 492395848 |  |
+| OPENCONFIGICMPV6TYPESCODE_DUPLICATE_ADDRESS_REQUEST_CODE | 498167178 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_ERR_IN_SRC_ROUTING_HDR | 504820605 |  |
+| OPENCONFIGICMPV6TYPESCODE_PARAM_PROBLEM_SR_UPPER_HDR_ERR | 508484909 |  |
+| OPENCONFIGICMPV6TYPESCODE_TIME_EXCEEDED_FRAGMENT_REASSEMBLY | 509568182 |  |
+| OPENCONFIGICMPV6TYPESCODE_NODE_INFORMATION_QUERY_CODE | 521442724 |  |
+| OPENCONFIGICMPV6TYPESCODE_ECHO_REPLY_NO_CODE | 523666998 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_HDRS_TOO_LONG | 524513058 |  |
+| OPENCONFIGICMPV6TYPESCODE_PACKET_TOO_BIG_CODE | 525569786 |  |
+| OPENCONFIGICMPV6TYPESCODE_REDIRECT_CODE | 530503282 |  |
+| OPENCONFIGICMPV6TYPESCODE_DST_UNREACHABLE_NO_ROUTE_TO_DST | 533948408 |  |
+| OPENCONFIGICMPV6TYPESCODE_ROUTER_SOLICITATION_NO_CODE | 536639930 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIcmpv6TypesTYPE"></a>
+
+### OpenconfigIcmpv6TypesTYPE
+OpenconfigIcmpv6TypesTYPE represents an enumerated type generated for the YANG identity TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGICMPV6TYPESTYPE_UNSET | 0 |  |
+| OPENCONFIGICMPV6TYPESTYPE_TIME_EXCEEDED | 1081674 |  |
+| OPENCONFIGICMPV6TYPESTYPE_EXT_ECHO_REQUEST | 24717980 |  |
+| OPENCONFIGICMPV6TYPESTYPE_NODE_INFORMATION_QUERY | 45013475 |  |
+| OPENCONFIGICMPV6TYPESTYPE_ROUTER_SOLICITATION | 98924893 |  |
+| OPENCONFIGICMPV6TYPESTYPE_DESTINATION_UNREACHABLE | 104111184 |  |
+| OPENCONFIGICMPV6TYPESTYPE_INVERSE_NEIGHBOR_SOLICITATION | 113591923 |  |
+| OPENCONFIGICMPV6TYPESTYPE_ECHO_REQUEST | 146094964 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_ROUTER_ADVERTISEMENT | 158362841 |  |
+| OPENCONFIGICMPV6TYPESTYPE_REDIRECT | 163834461 |  |
+| OPENCONFIGICMPV6TYPESTYPE_HOME_AGENT_ADDRESS_DISCOVERY_REPLY | 176115613 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MPL_CONTROL | 192104808 |  |
+| OPENCONFIGICMPV6TYPESTYPE_HOME_AGENT_ADDRESS_DISCOVERY_REQUEST | 198570822 |  |
+| OPENCONFIGICMPV6TYPESTYPE_CERTIFICATION_PATH_ADVERTISEMENT | 219240551 |  |
+| OPENCONFIGICMPV6TYPESTYPE_NODE_INFORMATION_RESPONSE | 243066920 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_LISTENER_DONE | 247370491 |  |
+| OPENCONFIGICMPV6TYPESTYPE_ROUTER_ADVERTISEMENT | 281134796 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_ROUTER_TERMINATION | 293793680 |  |
+| OPENCONFIGICMPV6TYPESTYPE_INVERSE_NEIGHBOR_ADVERTISEMENT | 295419682 |  |
+| OPENCONFIGICMPV6TYPESTYPE_PACKET_TOO_BIG | 351288337 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MOBILE_PREFIX_SOLICITATION | 357008481 |  |
+| OPENCONFIGICMPV6TYPESTYPE_RENUNBERING | 371733096 |  |
+| OPENCONFIGICMPV6TYPESTYPE_NEIGHBOR_SOLICITATION | 377474698 |  |
+| OPENCONFIGICMPV6TYPESTYPE_DUPLICATE_ADDRESS_REQUEST | 388522479 |  |
+| OPENCONFIGICMPV6TYPESTYPE_VERSION2_MULTICAST_LISTENER | 391572519 |  |
+| OPENCONFIGICMPV6TYPESTYPE_CERTIFICATION_PATH_SOLICITATION | 402605364 |  |
+| OPENCONFIGICMPV6TYPESTYPE_ILNPV6_LOCATOR_UPDATE | 430248453 |  |
+| OPENCONFIGICMPV6TYPESTYPE_DUPLICATE_ADDRESS_CONFIRMATION | 430658675 |  |
+| OPENCONFIGICMPV6TYPESTYPE_EXT_ECHO_REPLY | 434363663 |  |
+| OPENCONFIGICMPV6TYPESTYPE_ECHO_REPLY | 439504551 |  |
+| OPENCONFIGICMPV6TYPESTYPE_FMIPV6 | 443812321 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_LISTENER_QUERY | 445767361 |  |
+| OPENCONFIGICMPV6TYPESTYPE_RPL_CONTROL | 464318563 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_ROUTER_SOLICITATION | 475272206 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MULTICAST_LISTENER_REPORT | 480441241 |  |
+| OPENCONFIGICMPV6TYPESTYPE_PARAMETER_PROBLEM | 496705406 |  |
+| OPENCONFIGICMPV6TYPESTYPE_MOBILE_PREFIX_ADVERTISEMENT | 529493424 |  |
+| OPENCONFIGICMPV6TYPESTYPE_NEIGHBOR_ADVERTISEMENT | 533835365 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIfAggregateAggregationType"></a>
+
+### OpenconfigIfAggregateAggregationType
+OpenconfigIfAggregateAggregationType represents an enumerated type generated for the YANG enumerated type aggregation-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGIFAGGREGATEAGGREGATIONTYPE_UNSET | 0 |  |
+| OPENCONFIGIFAGGREGATEAGGREGATIONTYPE_LACP | 1 |  |
+| OPENCONFIGIFAGGREGATEAGGREGATIONTYPE_STATIC | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIfEthernetETHERNETSPEED"></a>
+
+### OpenconfigIfEthernetETHERNETSPEED
+OpenconfigIfEthernetETHERNETSPEED represents an enumerated type generated for the YANG identity ETHERNET_SPEED.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGIFETHERNETETHERNETSPEED_UNSET | 0 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_600GB | 33095753 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_UNKNOWN | 63922730 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_2500MB | 129756682 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_800GB | 141062131 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_1GB | 158137778 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_25GB | 164726524 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_100MB | 176009444 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_10GB | 221101252 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_200GB | 231972805 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_100GB | 276675162 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_10MB | 321766842 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_400GB | 339939183 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_5GB | 425875238 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_50GB | 434311888 |  |
+| OPENCONFIGIFETHERNETETHERNETSPEED_SPEED_40GB | 470711119 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIfEthernetINTERFACEFEC"></a>
+
+### OpenconfigIfEthernetINTERFACEFEC
+OpenconfigIfEthernetINTERFACEFEC represents an enumerated type generated for the YANG identity INTERFACE_FEC.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGIFETHERNETINTERFACEFEC_UNSET | 0 |  |
+| OPENCONFIGIFETHERNETINTERFACEFEC_FEC_RS528 | 88464744 |  |
+| OPENCONFIGIFETHERNETINTERFACEFEC_FEC_RS544 | 189130486 |  |
+| OPENCONFIGIFETHERNETINTERFACEFEC_FEC_RS544_2X_INTERLEAVE | 233860969 |  |
+| OPENCONFIGIFETHERNETINTERFACEFEC_FEC_DISABLED | 292735108 |  |
+| OPENCONFIGIFETHERNETINTERFACEFEC_FEC_FC | 491224709 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisIsisMetricFlags"></a>
+
+### OpenconfigIsisIsisMetricFlags
+OpenconfigIsisIsisMetricFlags represents an enumerated type generated for the YANG enumerated type isis-metric-flags.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISISISMETRICFLAGS_UNSET | 0 |  |
+| OPENCONFIGISISISISMETRICFLAGS_INTERNAL | 1 |  |
+| OPENCONFIGISISISISMETRICFLAGS_UNSUPPORTED | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisLsdbTypesISISSUBTLVTYPE"></a>
+
+### OpenconfigIsisLsdbTypesISISSUBTLVTYPE
+OpenconfigIsisLsdbTypesISISSUBTLVTYPE represents an enumerated type generated for the YANG identity ISIS_SUBTLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_SUBTLVS_TYPE | 8389823 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_ADMIN_GROUP | 30752835 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_IPV6_NEIGHBOR_ADDRESS | 62595447 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_TE_DEFAULT_METRIC | 84488708 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_PREFIX_FLAGS | 120776505 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_RESIDUAL_BANDWIDTH | 125276661 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_IPV4_ROUTER_ID | 146710436 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_IPV4_INTERFACE_ADDRESS | 151077274 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_DELAY_VARIATION | 152169028 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_AVAILABLE_BANDWIDTH | 162926581 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_UTILIZED_BANDWIDTH | 199835886 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_LOSS | 204065508 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_MIN_MAX_LINK_DELAY | 225688360 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_ROUTER_CAPABILITY_SR_ALGORITHM | 238900237 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_ATTRIBUTES | 250713986 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_PROTECTION_TYPE | 262837899 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_IPV6_ROUTER_ID | 266502986 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_ROUTER_CAPABILITY_SR_CAPABILITY | 297502288 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_IPV4_NEIGHBOR_ADDRESS | 302536829 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_MAX_LINK_BANDWIDTH | 305192025 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_PREFIX_SID | 311178044 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_ID | 318085186 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_MAX_RESERVABLE_BANDWIDTH | 336093730 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_UNRESERVED_BANDWIDTH | 347423013 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_SUBTLVS_TYPE | 360228928 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_BANDWIDTH_CONSTRAINTS | 372383028 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_LINK_DELAY | 407431566 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_TAG64 | 428754929 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_IPV6_INTERFACE_ADDRESS | 447335508 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_UNCONSTRAINED_LSP | 462470049 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_ADJ_LAN_SID | 477375444 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_ADJ_SID | 488894800 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_ROUTER_CAPABILITY_SUBTLVS_TYPE | 494655834 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IP_REACHABILITY_TAG | 502161515 |  |
+| OPENCONFIGISISLSDBTYPESISISSUBTLVTYPE_IS_REACHABILITY_EXTENDED_ADMIN_GROUP | 533689701 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisLsdbTypesISISTLVTYPE"></a>
+
+### OpenconfigIsisLsdbTypesISISTLVTYPE
+OpenconfigIsisLsdbTypesISISTLVTYPE represents an enumerated type generated for the YANG identity ISIS_TLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_MT_ISN | 11791417 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV6_SRLG | 34773981 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_PURGE_OI | 83596849 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_NLPID | 97911270 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV6_REACHABILITY | 123793844 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_MT_IPV6_REACHABILITY | 160105040 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV4_EXTERNAL_REACHABILITY | 172032920 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_LSP_BUFFER_SIZE | 174409741 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_INSTANCE_ID | 190868124 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_MULTI_TOPOLOGY | 209052772 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_MT_IPV4_REACHABILITY | 213324354 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV4_INTERNAL_REACHABILITY | 215509190 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_AUTHENTICATION | 226539161 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV6_INTERFACE_ADDRESSES | 264046255 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV4_TE_ROUTER_ID | 278019714 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_MT_IS_NEIGHBOR_ATTRIBUTE | 297996031 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV4_INTERFACE_ADDRESSES | 302296485 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_ROUTER_CAPABILITY | 346670691 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_DYNAMIC_NAME | 351978310 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_EXTENDED_IPV4_REACHABILITY | 375140970 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_ISIS_ALIAS_ID | 380304980 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_AREA_ADDRESSES | 402418059 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV4_SRLG | 411570407 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IIS_NEIGHBORS | 466521582 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IPV6_TE_ROUTER_ID | 490607584 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_EXTENDED_IS_REACHABILITY | 512182221 |  |
+| OPENCONFIGISISLSDBTYPESISISTLVTYPE_IS_NEIGHBOR_ATTRIBUTE | 515453003 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesAFISAFITYPE"></a>
+
+### OpenconfigIsisTypesAFISAFITYPE
+OpenconfigIsisTypesAFISAFITYPE represents an enumerated type generated for the YANG identity AFI_SAFI_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESAFISAFITYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESAFISAFITYPE_IPV6_MULTICAST | 40100870 |  |
+| OPENCONFIGISISTYPESAFISAFITYPE_IPV4_MULTICAST | 161450660 |  |
+| OPENCONFIGISISTYPESAFISAFITYPE_IPV4_UNICAST | 196909421 |  |
+| OPENCONFIGISISTYPESAFISAFITYPE_IPV6_UNICAST | 270342995 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesAFITYPE"></a>
+
+### OpenconfigIsisTypesAFITYPE
+OpenconfigIsisTypesAFITYPE represents an enumerated type generated for the YANG identity AFI_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESAFITYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESAFITYPE_IPV4 | 255993089 |  |
+| OPENCONFIGISISTYPESAFITYPE_IPV6 | 255993091 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesAUTHMODE"></a>
+
+### OpenconfigIsisTypesAUTHMODE
+OpenconfigIsisTypesAUTHMODE represents an enumerated type generated for the YANG identity AUTH_MODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESAUTHMODE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESAUTHMODE_TEXT | 57944094 |  |
+| OPENCONFIGISISTYPESAUTHMODE_MD5 | 472999741 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesAdaptiveTimerType"></a>
+
+### OpenconfigIsisTypesAdaptiveTimerType
+OpenconfigIsisTypesAdaptiveTimerType represents an enumerated type generated for the YANG enumerated type adaptive-timer-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESADAPTIVETIMERTYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESADAPTIVETIMERTYPE_LINEAR | 1 |  |
+| OPENCONFIGISISTYPESADAPTIVETIMERTYPE_EXPONENTIAL | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesCircuitType"></a>
+
+### OpenconfigIsisTypesCircuitType
+OpenconfigIsisTypesCircuitType represents an enumerated type generated for the YANG enumerated type circuit-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESCIRCUITTYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESCIRCUITTYPE_POINT_TO_POINT | 1 |  |
+| OPENCONFIGISISTYPESCIRCUITTYPE_BROADCAST | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesHelloPaddingType"></a>
+
+### OpenconfigIsisTypesHelloPaddingType
+OpenconfigIsisTypesHelloPaddingType represents an enumerated type generated for the YANG enumerated type hello-padding-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESHELLOPADDINGTYPE_STRICT | 0 |  |
+| OPENCONFIGISISTYPESHELLOPADDINGTYPE_LOOSE | 2 |  |
+| OPENCONFIGISISTYPESHELLOPADDINGTYPE_ADAPTIVE | 3 |  |
+| OPENCONFIGISISTYPESHELLOPADDINGTYPE_DISABLE | 4 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesIsisInterfaceAdjState"></a>
+
+### OpenconfigIsisTypesIsisInterfaceAdjState
+OpenconfigIsisTypesIsisInterfaceAdjState represents an enumerated type generated for the YANG enumerated type isis-interface-adj-state.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESISISINTERFACEADJSTATE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESISISINTERFACEADJSTATE_UP | 1 |  |
+| OPENCONFIGISISTYPESISISINTERFACEADJSTATE_DOWN | 2 |  |
+| OPENCONFIGISISTYPESISISINTERFACEADJSTATE_INIT | 3 |  |
+| OPENCONFIGISISTYPESISISINTERFACEADJSTATE_FAILED | 4 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesLevelType"></a>
+
+### OpenconfigIsisTypesLevelType
+OpenconfigIsisTypesLevelType represents an enumerated type generated for the YANG enumerated type level-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESLEVELTYPE_LEVEL_1_2 | 0 |  |
+| OPENCONFIGISISTYPESLEVELTYPE_LEVEL_1 | 1 |  |
+| OPENCONFIGISISTYPESLEVELTYPE_LEVEL_2 | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesMetricStyle"></a>
+
+### OpenconfigIsisTypesMetricStyle
+OpenconfigIsisTypesMetricStyle represents an enumerated type generated for the YANG enumerated type metric-style.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESMETRICSTYLE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESMETRICSTYLE_NARROW_METRIC | 1 |  |
+| OPENCONFIGISISTYPESMETRICSTYLE_WIDE_METRIC | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesOVERLOADRESETTRIGGERTYPE"></a>
+
+### OpenconfigIsisTypesOVERLOADRESETTRIGGERTYPE
+OpenconfigIsisTypesOVERLOADRESETTRIGGERTYPE represents an enumerated type generated for the YANG identity OVERLOAD_RESET_TRIGGER_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESOVERLOADRESETTRIGGERTYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESOVERLOADRESETTRIGGERTYPE_WAIT_FOR_SYSTEM | 29067962 |  |
+| OPENCONFIGISISTYPESOVERLOADRESETTRIGGERTYPE_WAIT_FOR_BGP | 495828064 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigIsisTypesSAFITYPE"></a>
+
+### OpenconfigIsisTypesSAFITYPE
+OpenconfigIsisTypesSAFITYPE represents an enumerated type generated for the YANG identity SAFI_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGISISTYPESSAFITYPE_UNSET | 0 |  |
+| OPENCONFIGISISTYPESSAFITYPE_UNICAST | 82321848 |  |
+| OPENCONFIGISISTYPESSAFITYPE_MULTICAST | 276368649 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigKeychainTypesAUTHTYPE"></a>
+
+### OpenconfigKeychainTypesAUTHTYPE
+OpenconfigKeychainTypesAUTHTYPE represents an enumerated type generated for the YANG identity AUTH_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGKEYCHAINTYPESAUTHTYPE_UNSET | 0 |  |
+| OPENCONFIGKEYCHAINTYPESAUTHTYPE_SIMPLE_KEY | 264633724 |  |
+| OPENCONFIGKEYCHAINTYPESAUTHTYPE_KEYCHAIN | 489433182 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigKeychainTypesCRYPTOTYPE"></a>
+
+### OpenconfigKeychainTypesCRYPTOTYPE
+OpenconfigKeychainTypesCRYPTOTYPE represents an enumerated type generated for the YANG identity CRYPTO_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_UNSET | 0 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_SHA_1 | 63458101 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_MD5 | 83939735 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_SHA_1 | 128319763 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_SHA_1_96 | 133599319 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_MD5 | 373552525 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_SHA_256 | 381144041 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_SHA_1_20 | 485916448 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_AES_28_CMAC_96 | 504049088 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_CRYPTO_NONE | 526619819 |  |
+| OPENCONFIGKEYCHAINTYPESCRYPTOTYPE_HMAC_SHA_1_12 | 536249339 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigLocalRoutingLOCALDEFINEDNEXTHOP"></a>
+
+### OpenconfigLocalRoutingLOCALDEFINEDNEXTHOP
+OpenconfigLocalRoutingLOCALDEFINEDNEXTHOP represents an enumerated type generated for the YANG identity LOCAL_DEFINED_NEXT_HOP.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGLOCALROUTINGLOCALDEFINEDNEXTHOP_UNSET | 0 |  |
+| OPENCONFIGLOCALROUTINGLOCALDEFINEDNEXTHOP_LOCAL_LINK | 335034920 |  |
+| OPENCONFIGLOCALROUTINGLOCALDEFINEDNEXTHOP_DROP | 485660995 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMessagesDEBUGSERVICE"></a>
+
+### OpenconfigMessagesDEBUGSERVICE
+OpenconfigMessagesDEBUGSERVICE represents an enumerated type generated for the YANG identity DEBUG_SERVICE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMESSAGESDEBUGSERVICE_UNSET | 0 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsCspfTieBreaking"></a>
+
+### OpenconfigMplsCspfTieBreaking
+OpenconfigMplsCspfTieBreaking represents an enumerated type generated for the YANG enumerated type cspf-tie-breaking.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSCSPFTIEBREAKING_RANDOM | 0 |  |
+| OPENCONFIGMPLSCSPFTIEBREAKING_LEAST_FILL | 2 |  |
+| OPENCONFIGMPLSCSPFTIEBREAKING_MOST_FILL | 3 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsLdpLabelAdvertisementMode"></a>
+
+### OpenconfigMplsLdpLabelAdvertisementMode
+OpenconfigMplsLdpLabelAdvertisementMode represents an enumerated type generated for the YANG enumerated type label-advertisement-mode.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSLDPLABELADVERTISEMENTMODE_UNSET | 0 |  |
+| OPENCONFIGMPLSLDPLABELADVERTISEMENTMODE_DOWNSTREAM_UNSOLICITED | 1 |  |
+| OPENCONFIGMPLSLDPLABELADVERTISEMENTMODE_DOWNSTREAM_ON_DEMAND | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsLdpMplsLdpAdjacencyType"></a>
+
+### OpenconfigMplsLdpMplsLdpAdjacencyType
+OpenconfigMplsLdpMplsLdpAdjacencyType represents an enumerated type generated for the YANG enumerated type mpls-ldp-adjacency-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSLDPMPLSLDPADJACENCYTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSLDPMPLSLDPADJACENCYTYPE_LINK | 1 |  |
+| OPENCONFIGMPLSLDPMPLSLDPADJACENCYTYPE_TARGETED | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsLdpMplsLdpAfi"></a>
+
+### OpenconfigMplsLdpMplsLdpAfi
+OpenconfigMplsLdpMplsLdpAfi represents an enumerated type generated for the YANG enumerated type mpls-ldp-afi.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSLDPMPLSLDPAFI_UNSET | 0 |  |
+| OPENCONFIGMPLSLDPMPLSLDPAFI_IPV4 | 1 |  |
+| OPENCONFIGMPLSLDPMPLSLDPAFI_IPV6 | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsMplsHopType"></a>
+
+### OpenconfigMplsMplsHopType
+OpenconfigMplsMplsHopType represents an enumerated type generated for the YANG enumerated type mpls-hop-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSMPLSHOPTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSMPLSHOPTYPE_LOOSE | 1 |  |
+| OPENCONFIGMPLSMPLSHOPTYPE_STRICT | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsMplsSrlgFloodingType"></a>
+
+### OpenconfigMplsMplsSrlgFloodingType
+OpenconfigMplsMplsSrlgFloodingType represents an enumerated type generated for the YANG enumerated type mpls-srlg-flooding-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSMPLSSRLGFLOODINGTYPE_FLOODED_SRLG | 0 |  |
+| OPENCONFIGMPLSMPLSSRLGFLOODINGTYPE_STATIC_SRLG | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTeBandwidthType"></a>
+
+### OpenconfigMplsTeBandwidthType
+OpenconfigMplsTeBandwidthType represents an enumerated type generated for the YANG enumerated type te-bandwidth-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTEBANDWIDTHTYPE_SPECIFIED | 0 |  |
+| OPENCONFIGMPLSTEBANDWIDTHTYPE_AUTO | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesLSPMETRICTYPE"></a>
+
+### OpenconfigMplsTypesLSPMETRICTYPE
+OpenconfigMplsTypesLSPMETRICTYPE represents an enumerated type generated for the YANG identity LSP_METRIC_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESLSPMETRICTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESLSPMETRICTYPE_LSP_METRIC_INHERITED | 114379355 |  |
+| OPENCONFIGMPLSTYPESLSPMETRICTYPE_LSP_METRIC_ABSOLUTE | 239349140 |  |
+| OPENCONFIGMPLSTYPESLSPMETRICTYPE_LSP_METRIC_RELATIVE | 414552655 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesLSPOPERSTATUS"></a>
+
+### OpenconfigMplsTypesLSPOPERSTATUS
+OpenconfigMplsTypesLSPOPERSTATUS represents an enumerated type generated for the YANG identity LSP_OPER_STATUS.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESLSPOPERSTATUS_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESLSPOPERSTATUS_UP | 264074669 |  |
+| OPENCONFIGMPLSTYPESLSPOPERSTATUS_DOWN | 335566726 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesLSPROLE"></a>
+
+### OpenconfigMplsTypesLSPROLE
+OpenconfigMplsTypesLSPROLE represents an enumerated type generated for the YANG identity LSP_ROLE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESLSPROLE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESLSPROLE_TRANSIT | 221541038 |  |
+| OPENCONFIGMPLSTYPESLSPROLE_INGRESS | 336963778 |  |
+| OPENCONFIGMPLSTYPESLSPROLE_EGRESS | 375604564 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesMplsLabelEnum"></a>
+
+### OpenconfigMplsTypesMplsLabelEnum
+OpenconfigMplsTypesMplsLabelEnum represents an enumerated type generated for the YANG enumerated type mpls-label.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_IPV4_EXPLICIT_NULL | 1 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_ROUTER_ALERT | 2 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_IPV6_EXPLICIT_NULL | 3 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_IMPLICIT_NULL | 4 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_ENTROPY_LABEL_INDICATOR | 8 |  |
+| OPENCONFIGMPLSTYPESMPLSLABELENUM_NO_LABEL | 9 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesNULLLABELTYPE"></a>
+
+### OpenconfigMplsTypesNULLLABELTYPE
+OpenconfigMplsTypesNULLLABELTYPE represents an enumerated type generated for the YANG identity NULL_LABEL_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESNULLLABELTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESNULLLABELTYPE_IMPLICIT | 26700381 |  |
+| OPENCONFIGMPLSTYPESNULLLABELTYPE_EXPLICIT | 440297628 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesPATHCOMPUTATIONMETHOD"></a>
+
+### OpenconfigMplsTypesPATHCOMPUTATIONMETHOD
+OpenconfigMplsTypesPATHCOMPUTATIONMETHOD represents an enumerated type generated for the YANG identity PATH_COMPUTATION_METHOD.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESPATHCOMPUTATIONMETHOD_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESPATHCOMPUTATIONMETHOD_EXTERNALLY_QUERIED | 417421502 |  |
+| OPENCONFIGMPLSTYPESPATHCOMPUTATIONMETHOD_EXPLICITLY_DEFINED | 423111651 |  |
+| OPENCONFIGMPLSTYPESPATHCOMPUTATIONMETHOD_LOCALLY_COMPUTED | 445762314 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesPATHMETRICTYPE"></a>
+
+### OpenconfigMplsTypesPATHMETRICTYPE
+OpenconfigMplsTypesPATHMETRICTYPE represents an enumerated type generated for the YANG identity PATH_METRIC_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESPATHMETRICTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESPATHMETRICTYPE_TE_METRIC | 202164790 |  |
+| OPENCONFIGMPLSTYPESPATHMETRICTYPE_HOP_COUNT | 428891163 |  |
+| OPENCONFIGMPLSTYPESPATHMETRICTYPE_PATH_DELAY | 451188151 |  |
+| OPENCONFIGMPLSTYPESPATHMETRICTYPE_IGP_METRIC | 465719573 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesPATHSETUPPROTOCOL"></a>
+
+### OpenconfigMplsTypesPATHSETUPPROTOCOL
+OpenconfigMplsTypesPATHSETUPPROTOCOL represents an enumerated type generated for the YANG identity PATH_SETUP_PROTOCOL.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESPATHSETUPPROTOCOL_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESPATHSETUPPROTOCOL_PATH_SETUP_RSVP | 32490986 |  |
+| OPENCONFIGMPLSTYPESPATHSETUPPROTOCOL_PATH_SETUP_SR | 259153130 |  |
+| OPENCONFIGMPLSTYPESPATHSETUPPROTOCOL_PATH_SETUP_LDP | 523024019 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesPROTECTIONTYPE"></a>
+
+### OpenconfigMplsTypesPROTECTIONTYPE
+OpenconfigMplsTypesPROTECTIONTYPE represents an enumerated type generated for the YANG identity PROTECTION_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESPROTECTIONTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESPROTECTIONTYPE_UNPROTECTED | 54186176 |  |
+| OPENCONFIGMPLSTYPESPROTECTIONTYPE_LINK_NODE_PROTECTION_REQUESTED | 298364029 |  |
+| OPENCONFIGMPLSTYPESPROTECTIONTYPE_LINK_PROTECTION_REQUIRED | 390056449 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesPSEUDOWIREENCAPSULATION"></a>
+
+### OpenconfigMplsTypesPSEUDOWIREENCAPSULATION
+OpenconfigMplsTypesPSEUDOWIREENCAPSULATION represents an enumerated type generated for the YANG identity PSEUDOWIRE_ENCAPSULATION.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESPSEUDOWIREENCAPSULATION_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESPSEUDOWIREENCAPSULATION_PWE_ETHERNET_RAW_MODE | 439293174 |  |
+| OPENCONFIGMPLSTYPESPSEUDOWIREENCAPSULATION_PWE_ETHERNET_TAGGED_MODE | 461760696 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesRSVPAUTHTYPE"></a>
+
+### OpenconfigMplsTypesRSVPAUTHTYPE
+OpenconfigMplsTypesRSVPAUTHTYPE represents an enumerated type generated for the YANG identity RSVP_AUTH_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESRSVPAUTHTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESRSVPAUTHTYPE_RSVP_AUTH_MD5 | 457917047 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesTUNNELADMINSTATUS"></a>
+
+### OpenconfigMplsTypesTUNNELADMINSTATUS
+OpenconfigMplsTypesTUNNELADMINSTATUS represents an enumerated type generated for the YANG identity TUNNEL_ADMIN_STATUS.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESTUNNELADMINSTATUS_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESTUNNELADMINSTATUS_ADMIN_UP | 74384195 |  |
+| OPENCONFIGMPLSTYPESTUNNELADMINSTATUS_ADMIN_DOWN | 141379584 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigMplsTypesTUNNELTYPE"></a>
+
+### OpenconfigMplsTypesTUNNELTYPE
+OpenconfigMplsTypesTUNNELTYPE represents an enumerated type generated for the YANG identity TUNNEL_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGMPLSTYPESTUNNELTYPE_UNSET | 0 |  |
+| OPENCONFIGMPLSTYPESTUNNELTYPE_P2P | 234390308 |  |
+| OPENCONFIGMPLSTYPESTUNNELTYPE_P2MP | 389452523 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigNetworkInstanceTypesENCAPSULATION"></a>
+
+### OpenconfigNetworkInstanceTypesENCAPSULATION
+OpenconfigNetworkInstanceTypesENCAPSULATION represents an enumerated type generated for the YANG identity ENCAPSULATION.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGNETWORKINSTANCETYPESENCAPSULATION_UNSET | 0 |  |
+| OPENCONFIGNETWORKINSTANCETYPESENCAPSULATION_MPLS | 365922551 |  |
+| OPENCONFIGNETWORKINSTANCETYPESENCAPSULATION_VXLAN | 518286338 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigNetworkInstanceTypesENDPOINTTYPE"></a>
+
+### OpenconfigNetworkInstanceTypesENDPOINTTYPE
+OpenconfigNetworkInstanceTypesENDPOINTTYPE represents an enumerated type generated for the YANG identity ENDPOINT_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGNETWORKINSTANCETYPESENDPOINTTYPE_UNSET | 0 |  |
+| OPENCONFIGNETWORKINSTANCETYPESENDPOINTTYPE_REMOTE | 315230175 |  |
+| OPENCONFIGNETWORKINSTANCETYPESENDPOINTTYPE_LOCAL | 473263274 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigNetworkInstanceTypesLABELALLOCATIONMODE"></a>
+
+### OpenconfigNetworkInstanceTypesLABELALLOCATIONMODE
+OpenconfigNetworkInstanceTypesLABELALLOCATIONMODE represents an enumerated type generated for the YANG identity LABEL_ALLOCATION_MODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGNETWORKINSTANCETYPESLABELALLOCATIONMODE_UNSET | 0 |  |
+| OPENCONFIGNETWORKINSTANCETYPESLABELALLOCATIONMODE_PER_NEXTHOP | 42305384 |  |
+| OPENCONFIGNETWORKINSTANCETYPESLABELALLOCATIONMODE_PER_PREFIX | 147569928 |  |
+| OPENCONFIGNETWORKINSTANCETYPESLABELALLOCATIONMODE_INSTANCE_LABEL | 260096202 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigNetworkInstanceTypesNETWORKINSTANCETYPE"></a>
+
+### OpenconfigNetworkInstanceTypesNETWORKINSTANCETYPE
+OpenconfigNetworkInstanceTypesNETWORKINSTANCETYPE represents an enumerated type generated for the YANG identity NETWORK_INSTANCE_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_UNSET | 0 |  |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_L2P2P | 49773504 |  |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_L2VSI | 65578160 |  |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_L3VRF | 161283259 |  |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_L2L3 | 409599277 |  |
+| OPENCONFIGNETWORKINSTANCETYPESNETWORKINSTANCETYPE_DEFAULT_INSTANCE | 476488119 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesGRACELSATLVTYPES"></a>
+
+### OpenconfigOspfTypesGRACELSATLVTYPES
+OpenconfigOspfTypesGRACELSATLVTYPES represents an enumerated type generated for the YANG identity GRACE_LSA_TLV_TYPES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESGRACELSATLVTYPES_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESGRACELSATLVTYPES_GRACE_RESTART_REASON | 71890108 |  |
+| OPENCONFIGOSPFTYPESGRACELSATLVTYPES_GRACE_IP_INTERFACE_ADDRESS | 152130218 |  |
+| OPENCONFIGOSPFTYPESGRACELSATLVTYPES_GRACE_PERIOD | 243906855 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesMAXMETRICINCLUDE"></a>
+
+### OpenconfigOspfTypesMAXMETRICINCLUDE
+OpenconfigOspfTypesMAXMETRICINCLUDE represents an enumerated type generated for the YANG identity MAX_METRIC_INCLUDE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESMAXMETRICINCLUDE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESMAXMETRICINCLUDE_MAX_METRIC_INCLUDE_STUB | 49035700 |  |
+| OPENCONFIGOSPFTYPESMAXMETRICINCLUDE_MAX_METRIC_INCLUDE_TYPE2_EXTERNAL | 174031936 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesMAXMETRICTRIGGER"></a>
+
+### OpenconfigOspfTypesMAXMETRICTRIGGER
+OpenconfigOspfTypesMAXMETRICTRIGGER represents an enumerated type generated for the YANG identity MAX_METRIC_TRIGGER.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESMAXMETRICTRIGGER_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESMAXMETRICTRIGGER_MAX_METRIC_ON_SYSTEM_BOOT | 428003983 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFLSATYPE"></a>
+
+### OpenconfigOspfTypesOSPFLSATYPE
+OpenconfigOspfTypesOSPFLSATYPE represents an enumerated type generated for the YANG identity OSPF_LSA_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_SUMMARY_ASBR_LSA | 125037213 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_OSPFV2_LINK_SCOPE_OPAQUE_LSA | 137304350 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_OSPFV2_AS_SCOPE_OPAQUE_LSA | 186883594 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_SUMMARY_IP_NETWORK_LSA | 188591841 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_OSPFV2_AREA_SCOPE_OPAQUE_LSA | 215291727 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_ROUTER_LSA | 260046265 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_NETWORK_LSA | 350986634 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_NSSA_AS_EXTERNAL_LSA | 444724228 |  |
+| OPENCONFIGOSPFTYPESOSPFLSATYPE_AS_EXTERNAL_LSA | 492019634 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFNEIGHBORSTATE"></a>
+
+### OpenconfigOspfTypesOSPFNEIGHBORSTATE
+OpenconfigOspfTypesOSPFNEIGHBORSTATE represents an enumerated type generated for the YANG identity OSPF_NEIGHBOR_STATE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_INIT | 37357902 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_FULL | 66779439 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_ATTEMPT | 115294523 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_TWO_WAY | 143682058 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_DOWN | 324638956 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_LOADING | 380579724 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_EXCHANGE | 384166631 |  |
+| OPENCONFIGOSPFTYPESOSPFNEIGHBORSTATE_EXSTART | 428183021 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFNETWORKTYPE"></a>
+
+### OpenconfigOspfTypesOSPFNETWORKTYPE
+OpenconfigOspfTypesOSPFNETWORKTYPE represents an enumerated type generated for the YANG identity OSPF_NETWORK_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFNETWORKTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFNETWORKTYPE_POINT_TO_POINT_NETWORK | 33508311 |  |
+| OPENCONFIGOSPFTYPESOSPFNETWORKTYPE_BROADCAST_NETWORK | 330434029 |  |
+| OPENCONFIGOSPFTYPESOSPFNETWORKTYPE_NON_BROADCAST_NETWORK | 449794969 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFOPAQUELSATYPE"></a>
+
+### OpenconfigOspfTypesOSPFOPAQUELSATYPE
+OpenconfigOspfTypesOSPFOPAQUELSATYPE represents an enumerated type generated for the YANG identity OSPF_OPAQUE_LSA_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_OSPFV2_EXTENDED_PREFIX | 19017104 |  |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_GRACE_LSA | 196570736 |  |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_TRAFFIC_ENGINEERING | 198655238 |  |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_OSPFV2_EXTENDED_LINK | 213605388 |  |
+| OPENCONFIGOSPFTYPESOSPFOPAQUELSATYPE_ROUTER_INFORMATION | 246496211 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFRISRSIDLABELTLVTYPES"></a>
+
+### OpenconfigOspfTypesOSPFRISRSIDLABELTLVTYPES
+OpenconfigOspfTypesOSPFRISRSIDLABELTLVTYPES represents an enumerated type generated for the YANG identity OSPF_RI_SR_SID_LABEL_TLV_TYPES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFRISRSIDLABELTLVTYPES_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFRISRSIDLABELTLVTYPES_SR_SID_LABEL_TLV | 411420284 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFTELINKTLVTYPE"></a>
+
+### OpenconfigOspfTypesOSPFTELINKTLVTYPE
+OpenconfigOspfTypesOSPFTELINKTLVTYPE represents an enumerated type generated for the YANG identity OSPF_TE_LINK_TLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_ADMIN_GROUP | 41688158 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_MAXIMUM_RESERVABLE_BANDWIDTH | 81262405 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_UNRESERVED_BANDWIDTH | 237811802 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_METRIC | 275089009 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_MAXIMUM_BANDWIDTH | 357259331 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_LOCAL_IP | 399771326 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_ID | 464176934 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_REMOTE_IP | 469648989 |  |
+| OPENCONFIGOSPFTYPESOSPFTELINKTLVTYPE_TE_LINK_TYPE | 494048733 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFTELSATLVTYPE"></a>
+
+### OpenconfigOspfTypesOSPFTELSATLVTYPE
+OpenconfigOspfTypesOSPFTELSATLVTYPE represents an enumerated type generated for the YANG identity OSPF_TE_LSA_TLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_ROUTER_IPV6_ADDRESS | 47313214 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_NODE_ATTRIBUTE | 60513351 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_LINK | 105910866 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_OPTICAL_NODE_PROPERTY | 237041647 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_LINK_LOCAL | 348906014 |  |
+| OPENCONFIGOSPFTYPESOSPFTELSATLVTYPE_TE_ROUTER_ADDRESS | 367832736 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDLINKSUBTLVTYPE"></a>
+
+### OpenconfigOspfTypesOSPFV2EXTENDEDLINKSUBTLVTYPE
+OpenconfigOspfTypesOSPFV2EXTENDEDLINKSUBTLVTYPE represents an enumerated type generated for the YANG identity OSPFV2_EXTENDED_LINK_SUBTLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDLINKSUBTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDLINKSUBTLVTYPE_ADJACENCY_SID | 334305683 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE"></a>
+
+### OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE
+OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE represents an enumerated type generated for the YANG identity OSPFV2_EXTENDED_PREFIX_SID_LABEL_BINDING_SUBTLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE_ERO_PATH | 1829898 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE_ERO_METRIC | 48923107 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSIDLABELBINDINGSUBTLVTYPE_SID_MPLS_LABEL_BINDING | 526744022 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSUBTLVTYPE"></a>
+
+### OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSUBTLVTYPE
+OpenconfigOspfTypesOSPFV2EXTENDEDPREFIXSUBTLVTYPE represents an enumerated type generated for the YANG identity OSPFV2_EXTENDED_PREFIX_SUBTLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSUBTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSUBTLVTYPE_SID_LABEL_BINDING | 2971965 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSUBTLVTYPE_EXTENDED_PREFIX_RANGE | 203356488 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTENDEDPREFIXSUBTLVTYPE_PREFIX_SID | 237697073 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE"></a>
+
+### OpenconfigOspfTypesOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE
+OpenconfigOspfTypesOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE represents an enumerated type generated for the YANG identity OSPFV2_EXTPREFIX_BINDING_ERO_PATH_SEGMENT_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE_IPV4_SEGMENT | 340016298 |  |
+| OPENCONFIGOSPFTYPESOSPFV2EXTPREFIXBINDINGEROPATHSEGMENTTYPE_UNNUMBERED_INTERFACE_SEGMENT | 502490798 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesOSPFV2ROUTERLINKTYPE"></a>
+
+### OpenconfigOspfTypesOSPFV2ROUTERLINKTYPE
+OpenconfigOspfTypesOSPFV2ROUTERLINKTYPE represents an enumerated type generated for the YANG identity OSPFV2_ROUTER_LINK_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESOSPFV2ROUTERLINKTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESOSPFV2ROUTERLINKTYPE_STUB_NETWORK_LINK | 94378445 |  |
+| OPENCONFIGOSPFTYPESOSPFV2ROUTERLINKTYPE_VIRTUAL_LINK | 172444033 |  |
+| OPENCONFIGOSPFTYPESOSPFV2ROUTERLINKTYPE_POINT_TO_POINT_LINK | 244608719 |  |
+| OPENCONFIGOSPFTYPESOSPFV2ROUTERLINKTYPE_TRANSIT_NETWORK_LINK | 516096852 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesRILSATLVTYPES"></a>
+
+### OpenconfigOspfTypesRILSATLVTYPES
+OpenconfigOspfTypesRILSATLVTYPES represents an enumerated type generated for the YANG identity RI_LSA_TLV_TYPES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_RI_NODE_ADMIN_TAG | 97947365 |  |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_RI_FUNCTIONAL_CAPABILITIES | 121815788 |  |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_RI_INFORMATIONAL_CAPABILITIES | 231438658 |  |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_RI_SR_ALGORITHM | 317127065 |  |
+| OPENCONFIGOSPFTYPESRILSATLVTYPES_RI_SR_SID_LABEL_RANGE | 397406623 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesROUTERLSATYPES"></a>
+
+### OpenconfigOspfTypesROUTERLSATYPES
+OpenconfigOspfTypesROUTERLSATYPES represents an enumerated type generated for the YANG identity ROUTER_LSA_TYPES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESROUTERLSATYPES_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESROUTERLSATYPES_ROUTER_LSA_STUB_NETWORK | 67415949 |  |
+| OPENCONFIGOSPFTYPESROUTERLSATYPES_ROUTER_LSA_P2P | 75093792 |  |
+| OPENCONFIGOSPFTYPESROUTERLSATYPES_ROUTER_LSA_TRANSIT_NETWORK | 193866836 |  |
+| OPENCONFIGOSPFTYPESROUTERLSATYPES_ROUTER_LSA_VIRTUAL_LINK | 347259778 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesSRALGORITHM"></a>
+
+### OpenconfigOspfTypesSRALGORITHM
+OpenconfigOspfTypesSRALGORITHM represents an enumerated type generated for the YANG identity SR_ALGORITHM.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESSRALGORITHM_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESSRALGORITHM_SPF | 245503321 |  |
+| OPENCONFIGOSPFTYPESSRALGORITHM_STRICT_SPF | 435702079 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesSrSidType"></a>
+
+### OpenconfigOspfTypesSrSidType
+OpenconfigOspfTypesSrSidType represents an enumerated type generated for the YANG enumerated type sr-sid-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESSRSIDTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESSRSIDTYPE_LABEL | 1 |  |
+| OPENCONFIGOSPFTYPESSRSIDTYPE_SID | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigOspfTypesTENODEATTRIBUTETLVTYPE"></a>
+
+### OpenconfigOspfTypesTENODEATTRIBUTETLVTYPE
+OpenconfigOspfTypesTENODEATTRIBUTETLVTYPE represents an enumerated type generated for the YANG identity TE_NODE_ATTRIBUTE_TLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGOSPFTYPESTENODEATTRIBUTETLVTYPE_UNSET | 0 |  |
+| OPENCONFIGOSPFTYPESTENODEATTRIBUTETLVTYPE_NODE_IPV4_LOCAL_ADDRESS | 171010107 |  |
+| OPENCONFIGOSPFTYPESTENODEATTRIBUTETLVTYPE_NODE_IPV6_LOCAL_ADDRESS | 183121285 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPacketMatchTypesETHERTYPE"></a>
+
+### OpenconfigPacketMatchTypesETHERTYPE
+OpenconfigPacketMatchTypesETHERTYPE represents an enumerated type generated for the YANG identity ETHERTYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_UNSET | 0 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_ROCE | 14086673 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_LLDP | 63862784 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_IPV4 | 140115701 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_IPV6 | 140115703 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_ARP | 383275775 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_MPLS | 427890540 |  |
+| OPENCONFIGPACKETMATCHTYPESETHERTYPE_ETHERTYPE_VLAN | 522848603 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPacketMatchTypesIPPROTOCOL"></a>
+
+### OpenconfigPacketMatchTypesIPPROTOCOL
+OpenconfigPacketMatchTypesIPPROTOCOL represents an enumerated type generated for the YANG identity IP_PROTOCOL.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_UNSET | 0 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_GRE | 24050007 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_TCP | 38721802 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_L2TP | 81903923 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_AUTH | 203904199 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_PIM | 272904165 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_IN_IP | 309674436 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_IGMP | 512271866 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_ICMP | 512860246 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_UDP | 525100026 |  |
+| OPENCONFIGPACKETMATCHTYPESIPPROTOCOL_IP_RSVP | 530070378 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPacketMatchTypesPortNumRangeEnum"></a>
+
+### OpenconfigPacketMatchTypesPortNumRangeEnum
+OpenconfigPacketMatchTypesPortNumRangeEnum represents an enumerated type generated for the YANG enumerated type port-num-range.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPACKETMATCHTYPESPORTNUMRANGEENUM_UNSET | 0 |  |
+| OPENCONFIGPACKETMATCHTYPESPORTNUMRANGEENUM_ANY | 1 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPacketMatchTypesTCPFLAGS"></a>
+
+### OpenconfigPacketMatchTypesTCPFLAGS
+OpenconfigPacketMatchTypesTCPFLAGS represents an enumerated type generated for the YANG identity TCP_FLAGS.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_UNSET | 0 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_CWR | 7246418 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_ACK | 74689745 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_RST | 76795313 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_ECE | 208309299 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_PSH | 211387811 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_SYN | 244795956 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_FIN | 308430701 |  |
+| OPENCONFIGPACKETMATCHTYPESTCPFLAGS_TCP_URG | 496075790 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPcepLspControlType"></a>
+
+### OpenconfigPcepLspControlType
+OpenconfigPcepLspControlType represents an enumerated type generated for the YANG enumerated type lsp-control-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPCEPLSPCONTROLTYPE_UNSET | 0 |  |
+| OPENCONFIGPCEPLSPCONTROLTYPE_PCE_DELEGATED | 1 |  |
+| OPENCONFIGPCEPLSPCONTROLTYPE_PCC_CONTROLLED | 2 |  |
+| OPENCONFIGPCEPLSPCONTROLTYPE_PCC_REPORT_ONLY | 3 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPcepPceModeType"></a>
+
+### OpenconfigPcepPceModeType
+OpenconfigPcepPceModeType represents an enumerated type generated for the YANG enumerated type pce-mode-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPCEPPCEMODETYPE_UNSET | 0 |  |
+| OPENCONFIGPCEPPCEMODETYPE_STATELESS | 1 |  |
+| OPENCONFIGPCEPPCEMODETYPE_STATEFUL_PASSIVE | 2 |  |
+| OPENCONFIGPCEPPCEMODETYPE_STATEFUL_ACTIVE | 3 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPimTypesPIMMODE"></a>
+
+### OpenconfigPimTypesPIMMODE
+OpenconfigPimTypesPIMMODE represents an enumerated type generated for the YANG identity PIM_MODE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPIMTYPESPIMMODE_UNSET | 0 |  |
+| OPENCONFIGPIMTYPESPIMMODE_PIM_MODE_DENSE | 286716321 |  |
+| OPENCONFIGPIMTYPESPIMMODE_PIM_MODE_SPARSE | 535294624 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesCOMPONENTOPERSTATUS"></a>
+
+### OpenconfigPlatformTypesCOMPONENTOPERSTATUS
+OpenconfigPlatformTypesCOMPONENTOPERSTATUS represents an enumerated type generated for the YANG identity COMPONENT_OPER_STATUS.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESCOMPONENTOPERSTATUS_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTOPERSTATUS_INACTIVE | 66232085 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTOPERSTATUS_ACTIVE | 350531364 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTOPERSTATUS_DISABLED | 449140422 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesCOMPONENTREBOOTREASON"></a>
+
+### OpenconfigPlatformTypesCOMPONENTREBOOTREASON
+OpenconfigPlatformTypesCOMPONENTREBOOTREASON represents an enumerated type generated for the YANG identity COMPONENT_REBOOT_REASON.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREBOOTREASON_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREBOOTREASON_REBOOT_POWER_FAILURE | 242089167 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREBOOTREASON_REBOOT_CRITICAL_ERROR | 298505285 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREBOOTREASON_REBOOT_USER_INITIATED | 399832126 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesComponentRedundantRole"></a>
+
+### OpenconfigPlatformTypesComponentRedundantRole
+OpenconfigPlatformTypesComponentRedundantRole represents an enumerated type generated for the YANG enumerated type component-redundant-role.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLE_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLE_PRIMARY | 1 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLE_SECONDARY | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesComponentRedundantRoleSwitchoverReasonTrigger"></a>
+
+### OpenconfigPlatformTypesComponentRedundantRoleSwitchoverReasonTrigger
+OpenconfigPlatformTypesComponentRedundantRoleSwitchoverReasonTrigger represents an enumerated type generated for the YANG enumerated type component-redundant-role-switchover-reason-trigger.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLESWITCHOVERREASONTRIGGER_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLESWITCHOVERREASONTRIGGER_USER_INITIATED | 1 |  |
+| OPENCONFIGPLATFORMTYPESCOMPONENTREDUNDANTROLESWITCHOVERREASONTRIGGER_SYSTEM_INITIATED | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesOPENCONFIGHARDWARECOMPONENT"></a>
+
+### OpenconfigPlatformTypesOPENCONFIGHARDWARECOMPONENT
+OpenconfigPlatformTypesOPENCONFIGHARDWARECOMPONENT represents an enumerated type generated for the YANG identity OPENCONFIG_HARDWARE_COMPONENT.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_OPTICAL_CHANNEL | 17598998 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_FABRIC | 72327189 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_POWER_SUPPLY | 156519681 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_SENSOR | 163406904 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_STORAGE | 169410761 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_PORT | 208831331 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_FAN | 248256101 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_WIFI_ACCESS_POINT | 248502337 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_BACKPLANE | 267672527 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_LINECARD | 290488750 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_INTEGRATED_CIRCUIT | 344879553 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_CHASSIS | 384589570 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_CONTROLLER_CARD | 462407431 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_CPU | 467229440 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_TRANSCEIVER | 483792688 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGHARDWARECOMPONENT_FRU | 533475515 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPlatformTypesOPENCONFIGSOFTWARECOMPONENT"></a>
+
+### OpenconfigPlatformTypesOPENCONFIGSOFTWARECOMPONENT
+OpenconfigPlatformTypesOPENCONFIGSOFTWARECOMPONENT represents an enumerated type generated for the YANG identity OPENCONFIG_SOFTWARE_COMPONENT.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_UNSET | 0 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_OPERATING_SYSTEM | 9246962 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_BOOT_LOADER | 12056953 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_SOFTWARE_MODULE | 86825049 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_OPERATING_SYSTEM_UPDATE | 350799246 |  |
+| OPENCONFIGPLATFORMTYPESOPENCONFIGSOFTWARECOMPONENT_BIOS | 427663680 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPolicyTypesINSTALLPROTOCOLTYPE"></a>
+
+### OpenconfigPolicyTypesINSTALLPROTOCOLTYPE
+OpenconfigPolicyTypesINSTALLPROTOCOLTYPE represents an enumerated type generated for the YANG identity INSTALL_PROTOCOL_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_UNSET | 0 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_LOCAL | 47233937 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_STATIC | 164198026 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_LOCAL_AGGREGATE | 167243989 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_OSPF | 187006448 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_PIM | 203990878 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_GRIBI | 288936531 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_ISIS | 308545656 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_PCEP | 370633388 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_IGMP | 378946099 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_BGP | 436650411 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_DIRECTLY_CONNECTED | 463126862 |  |
+| OPENCONFIGPOLICYTYPESINSTALLPROTOCOLTYPE_OSPF3 | 470106339 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigPolicyTypesMatchSetOptionsRestrictedType"></a>
+
+### OpenconfigPolicyTypesMatchSetOptionsRestrictedType
+OpenconfigPolicyTypesMatchSetOptionsRestrictedType represents an enumerated type generated for the YANG enumerated type match-set-options-restricted-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGPOLICYTYPESMATCHSETOPTIONSRESTRICTEDTYPE_ANY | 0 |  |
+| OPENCONFIGPOLICYTYPESMATCHSETOPTIONSRESTRICTEDTYPE_INVERT | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigRibBgpTypesINVALIDROUTEREASON"></a>
+
+### OpenconfigRibBgpTypesINVALIDROUTEREASON
+OpenconfigRibBgpTypesINVALIDROUTEREASON represents an enumerated type generated for the YANG identity INVALID_ROUTE_REASON.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGRIBBGPTYPESINVALIDROUTEREASON_UNSET | 0 |  |
+| OPENCONFIGRIBBGPTYPESINVALIDROUTEREASON_INVALID_AS_LOOP | 281940072 |  |
+| OPENCONFIGRIBBGPTYPESINVALIDROUTEREASON_INVALID_ORIGINATOR | 329543457 |  |
+| OPENCONFIGRIBBGPTYPESINVALIDROUTEREASON_INVALID_CLUSTER_LOOP | 363552896 |  |
+| OPENCONFIGRIBBGPTYPESINVALIDROUTEREASON_INVALID_CONFED | 404003798 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigRibBgpTypesTUNNELENCAPSULATIONSUBTLVTYPE"></a>
+
+### OpenconfigRibBgpTypesTUNNELENCAPSULATIONSUBTLVTYPE
+OpenconfigRibBgpTypesTUNNELENCAPSULATIONSUBTLVTYPE represents an enumerated type generated for the YANG identity TUNNEL_ENCAPSULATION_SUBTLV_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_UNSET | 0 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_SRTE_PREFERENCE | 68217326 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_SRTE_BINDING_SID | 365388805 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_TUNNEL_REMOTE_ENDPOINT | 408846061 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_SRTE_SEGMENT_LIST | 471686299 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONSUBTLVTYPE_TUNNEL_COLOR | 494500102 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigRibBgpTypesTUNNELENCAPSULATIONTYPE"></a>
+
+### OpenconfigRibBgpTypesTUNNELENCAPSULATIONTYPE
+OpenconfigRibBgpTypesTUNNELENCAPSULATIONTYPE represents an enumerated type generated for the YANG identity TUNNEL_ENCAPSULATION_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONTYPE_UNSET | 0 |  |
+| OPENCONFIGRIBBGPTYPESTUNNELENCAPSULATIONTYPE_SRTE_POLICY_TUNNEL | 189389033 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigRoutingPolicyDefaultPolicyType"></a>
+
+### OpenconfigRoutingPolicyDefaultPolicyType
+OpenconfigRoutingPolicyDefaultPolicyType represents an enumerated type generated for the YANG enumerated type default-policy-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGROUTINGPOLICYDEFAULTPOLICYTYPE_REJECT_ROUTE | 0 |  |
+| OPENCONFIGROUTINGPOLICYDEFAULTPOLICYTYPE_ACCEPT_ROUTE | 1 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigRoutingPolicyPolicyResultType"></a>
+
+### OpenconfigRoutingPolicyPolicyResultType
+OpenconfigRoutingPolicyPolicyResultType represents an enumerated type generated for the YANG enumerated type policy-result-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGROUTINGPOLICYPOLICYRESULTTYPE_NEXT_STATEMENT | 0 |  |
+| OPENCONFIGROUTINGPOLICYPOLICYRESULTTYPE_ACCEPT_ROUTE | 1 |  |
+| OPENCONFIGROUTINGPOLICYPOLICYRESULTTYPE_REJECT_ROUTE | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSegmentRoutingTypesEnlpType"></a>
+
+### OpenconfigSegmentRoutingTypesEnlpType
+OpenconfigSegmentRoutingTypesEnlpType represents an enumerated type generated for the YANG enumerated type enlp-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSEGMENTROUTINGTYPESENLPTYPE_UNSET | 0 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESENLPTYPE_PUSH_IPV4_EXPLICIT_NULL | 1 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESENLPTYPE_PUSH_IPV6_EXPLICIT_NULL | 2 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESENLPTYPE_PUSH_IPV46_EXPLICIT_NULL | 3 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESENLPTYPE_NO_EXPLICIT_NULL | 4 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSegmentRoutingTypesSrDataplaneType"></a>
+
+### OpenconfigSegmentRoutingTypesSrDataplaneType
+OpenconfigSegmentRoutingTypesSrDataplaneType represents an enumerated type generated for the YANG enumerated type sr-dataplane-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSEGMENTROUTINGTYPESSRDATAPLANETYPE_UNSET | 0 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRDATAPLANETYPE_MPLS | 1 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRDATAPLANETYPE_IPV6 | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSegmentRoutingTypesSrteInvalidSlReason"></a>
+
+### OpenconfigSegmentRoutingTypesSrteInvalidSlReason
+OpenconfigSegmentRoutingTypesSrteInvalidSlReason represents an enumerated type generated for the YANG enumerated type srte-invalid-sl-reason.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_UNSET | 0 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_EMPTY_SL | 1 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_ZERO_WEIGHT | 2 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_FIRST_SID_UNRESOLVABLE | 3 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_OTHER_SID_UNRESOLVABLE | 4 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEINVALIDSLREASON_VERIFICATION_FAIL | 5 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSegmentRoutingTypesSrteProtocolType"></a>
+
+### OpenconfigSegmentRoutingTypesSrteProtocolType
+OpenconfigSegmentRoutingTypesSrteProtocolType represents an enumerated type generated for the YANG enumerated type srte-protocol-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEPROTOCOLTYPE_UNSET | 0 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEPROTOCOLTYPE_PCEP | 11 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEPROTOCOLTYPE_BGP | 21 |  |
+| OPENCONFIGSEGMENTROUTINGTYPESSRTEPROTOCOLTYPE_CONFIG | 31 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSystemLoggingSYSLOGFACILITY"></a>
+
+### OpenconfigSystemLoggingSYSLOGFACILITY
+OpenconfigSystemLoggingSYSLOGFACILITY represents an enumerated type generated for the YANG identity SYSLOG_FACILITY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_UNSET | 0 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_AUTHPRIV | 1992095 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_MAIL | 110300463 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL5 | 196925136 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL4 | 196925137 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL7 | 196925138 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL6 | 196925139 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL1 | 196925140 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL0 | 196925141 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL3 | 196925142 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_LOCAL2 | 196925143 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_ALL | 252252703 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_CONSOLE | 336452861 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_NTP | 350428412 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_KERNEL | 398004525 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_AUDIT | 477963459 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_AUTH | 478239772 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_SYSTEM_DAEMON | 499486404 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_SYSLOG | 508909033 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGFACILITY_USER | 523894347 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSystemLoggingSyslogSeverity"></a>
+
+### OpenconfigSystemLoggingSyslogSeverity
+OpenconfigSystemLoggingSyslogSeverity represents an enumerated type generated for the YANG enumerated type syslog-severity.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_UNSET | 0 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_EMERGENCY | 1 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_ALERT | 2 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_CRITICAL | 3 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_ERROR | 4 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_WARNING | 5 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_NOTICE | 6 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_INFORMATIONAL | 7 |  |
+| OPENCONFIGSYSTEMLOGGINGSYSLOGSEVERITY_DEBUG | 8 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigSystemNTPAUTHTYPE"></a>
+
+### OpenconfigSystemNTPAUTHTYPE
+OpenconfigSystemNTPAUTHTYPE represents an enumerated type generated for the YANG identity NTP_AUTH_TYPE.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGSYSTEMNTPAUTHTYPE_UNSET | 0 |  |
+| OPENCONFIGSYSTEMNTPAUTHTYPE_NTP_AUTH_MD5 | 142463499 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigTransportTypesLoopbackModeType"></a>
+
+### OpenconfigTransportTypesLoopbackModeType
+OpenconfigTransportTypesLoopbackModeType represents an enumerated type generated for the YANG enumerated type loopback-mode-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGTRANSPORTTYPESLOOPBACKMODETYPE_NONE | 0 |  |
+| OPENCONFIGTRANSPORTTYPESLOOPBACKMODETYPE_FACILITY | 2 |  |
+| OPENCONFIGTRANSPORTTYPESLOOPBACKMODETYPE_TERMINAL | 3 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigTypesADDRESSFAMILY"></a>
+
+### OpenconfigTypesADDRESSFAMILY
+OpenconfigTypesADDRESSFAMILY represents an enumerated type generated for the YANG identity ADDRESS_FAMILY.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGTYPESADDRESSFAMILY_UNSET | 0 |  |
+| OPENCONFIGTYPESADDRESSFAMILY_IPV6 | 235337305 |  |
+| OPENCONFIGTYPESADDRESSFAMILY_IPV4 | 235337307 |  |
+| OPENCONFIGTYPESADDRESSFAMILY_MPLS | 442843842 |  |
+| OPENCONFIGTYPESADDRESSFAMILY_L2_ETHERNET | 505593594 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigVlanTypesTPIDTYPES"></a>
+
+### OpenconfigVlanTypesTPIDTYPES
+OpenconfigVlanTypesTPIDTYPES represents an enumerated type generated for the YANG identity TPID_TYPES.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGVLANTYPESTPIDTYPES_UNSET | 0 |  |
+| OPENCONFIGVLANTYPESTPIDTYPES_TPID_0X9100 | 43366784 |  |
+| OPENCONFIGVLANTYPESTPIDTYPES_TPID_0X88A8 | 167692657 |  |
+| OPENCONFIGVLANTYPESTPIDTYPES_TPID_0X8100 | 253072231 |  |
+| OPENCONFIGVLANTYPESTPIDTYPES_TPID_ANY | 287549508 |  |
+| OPENCONFIGVLANTYPESTPIDTYPES_TPID_0X9200 | 345856891 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigVlanTypesVlanModeType"></a>
+
+### OpenconfigVlanTypesVlanModeType
+OpenconfigVlanTypesVlanModeType represents an enumerated type generated for the YANG enumerated type vlan-mode-type.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGVLANTYPESVLANMODETYPE_UNSET | 0 |  |
+| OPENCONFIGVLANTYPESVLANMODETYPE_ACCESS | 1 |  |
+| OPENCONFIGVLANTYPESVLANMODETYPE_TRUNK | 2 |  |
+
+
+
+<a name="managed_element-enums-OpenconfigVlanTypesVlanStackAction"></a>
+
+### OpenconfigVlanTypesVlanStackAction
+OpenconfigVlanTypesVlanStackAction represents an enumerated type generated for the YANG enumerated type vlan-stack-action.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OPENCONFIGVLANTYPESVLANSTACKACTION_UNSET | 0 |  |
+| OPENCONFIGVLANTYPESVLANSTACKACTION_PUSH | 1 |  |
+| OPENCONFIGVLANTYPESVLANSTACKACTION_POP | 2 |  |
+| OPENCONFIGVLANTYPESVLANSTACKACTION_SWAP | 3 |  |
 
 
  
