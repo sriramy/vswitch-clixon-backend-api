@@ -1,31 +1,50 @@
+
 YGOT_GO ?= $(GOPATH)/src/github.com/openconfig/ygot/generator/generator.go
 YGOT_PROTO ?= $(GOPATH)/src/github.com/openconfig/ygot/proto_generator/protogenerator.go
+
+DOCS_DIR ?= docs
+IMPORTS_DIR ?= proto
 YANG_DIR ?= yang
-MODELS ?= models
+MODELS_DIR ?= models
+
 FAKEROOT ?= managed_element
 YGOT_PKG_NAME ?= gen
 YGOT_GEN_DIR ?= pkg/$(YGOT_PKG_NAME)
-YGOT_GO_FLAGS ?= -shorten_enum_leaf_names -typedef_enum_with_defmod -generate_fakeroot -fakeroot_name=$(FAKEROOT) -compress_paths=true -exclude_modules=ietf-interfaces -generate_simple_unions=true
-YGOT_PROTO_FLAGS ?= -generate_fakeroot -fakeroot_name=managed_element -compress_paths=true -exclude_modules=ietf-interfaces
-
-YANG_FILES = $(wildcard $(YANG_DIR)/*.yang)
-YGOT_GO_FILES = $(patsubst $(YANG_DIR)/%.yang, $(YGOT_GEN_DIR)/go/%.go, $(YANG_FILES))
-YGOT_PROTO_FILES = $(patsubst $(YANG_DIR)/%.yang, $(YGOT_GEN_DIR)/proto/%.proto, $(YANG_FILES))
+PROTO_DIR = $(YGOT_GEN_DIR)/proto
+STUBS_DIR = $(YGOT_GEN_DIR)/go
 
 PREFIX ?= /usr/local
 PROTOC ?= protoc
 GO ?=go
 
-$(YGOT_GEN_DIR)/go/%.go: $(YANG_DIR)/%.yang
-	@mkdir -p $(@D)
-	$(GO) run $(YGOT_GO) -path=$(MODELS) -output_file=$@ -package_name=$(FAKEROOT) $(YGOT_GO_FLAGS) $<
+YANG_EXCLUDE_MODULES ?= ietf-interfaces,openconfig-segment-routing-types
+YANG_FILES = $(wildcard $(YANG_DIR)/*.yang)
+YGOT_PROT_FILES = $(patsubst $(YANG_DIR)/%.yang, $(YGOT_GEN_DIR)/proto/%.proto, $(YANG_FILES))
+YGOT_FLAGS ?= -generate_fakeroot -fakeroot_name=$(FAKEROOT) -package_name=$(FAKEROOT) -go_package_base=/ \
+	-compress_paths=true -exclude_modules=$(YANG_EXCLUDE_MODULES) -yext_path=$(IMPORTS_DIR)/ygot -ywrapper_path=$(IMPORTS_DIR)/ygot
+
+all: generate
 
 $(YGOT_GEN_DIR)/proto/%.proto: $(YANG_DIR)/%.yang
 	@mkdir -p $(@D)
-	$(GO) run $(YGOT_PROTO) -path=$(MODELS) -output_dir=$(YGOT_GEN_DIR)/proto -package_name=$(FAKEROOT) $(YGOT_PROTO_FLAGS) $<
+	$(GO) run $(YGOT_PROTO) -path=$(MODELS_DIR) -output_dir=$(YGOT_GEN_DIR)/proto  $(YGOT_FLAGS) $<
+
+$(DOCS_DIR):
+	mkdir -p $(DOCS_DIR)
+
+$(STUBS_DIR):
+	mkdir -p $(STUBS_DIR)
+
+.PHONY: proto2go
+proto2go: $(STUBS_DIR) $(DOCS_DIR)
+	$(PROTOC) -I . \
+	-I $(PROTO_DIR) \
+	--go_out=$(STUBS_DIR) \
+	--doc_out=$(DOCS_DIR) --doc_opt=markdown,proto.md \
+	$(PROTO_DIR)/$(FAKEROOT)/$(FAKEROOT).proto
 
 .PHONY: generate
-generate: $(YGOT_GO_FILES) $(YGOT_PROTO_FILES)
+generate: $(YGOT_PROT_FILES) proto2go
 
 .PHONY: clean
 clean:

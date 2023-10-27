@@ -9,7 +9,9 @@ syntax = "proto3";
 
 package managed_element.enums;
 
-import "github.com/openconfig/ygot/proto/yext/yext.proto";
+import "proto/ygot/yext.proto";
+
+option go_package = "//managed_element/enums";
 
 // IETFInterfacesInterfaceType represents an enumerated type generated for the YANG identity interface-type.
 enum IETFInterfacesInterfaceType {

@@ -9,9 +9,11 @@ syntax = "proto3";
 
 package managed_element;
 
-import "github.com/openconfig/ygot/proto/ywrapper/ywrapper.proto";
-import "github.com/openconfig/ygot/proto/yext/yext.proto";
+import "proto/ygot/ywrapper.proto";
+import "proto/ygot/yext.proto";
 import "managed_element/enums/enums.proto";
+
+option go_package = "//managed_element";
 
 message ManagedElement {
   message ComponentKey {
